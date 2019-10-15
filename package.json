@@ -1,0 +1,18 @@
+{
+  "name": "spooky-forums",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u001b[D\u001b[C"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass-lint": "^1.13.1"
+  }
+}
