@@ -1,0 +1,22 @@
+{
+  "name": "spooky-forums",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u001b[D\u001b[C"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0",
+    "sass-lint": "^1.13.1",
+	"gulp": "^4.02",
+	"gulp-htmlmin": "^5.0.1"
+  }
+}
