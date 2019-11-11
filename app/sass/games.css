@@ -1,0 +1,36 @@
+#game_head {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Row of three blocks for games */
+.column {
+  background-color: #161a1f;
+  /*border: 1px solid $orange-color;*/
+  float: left;
+  width: 33%;
+  padding: 10px;
+  height: 300px;
+}
+
+.row {
+  text-align: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Make columns responsive */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=games.css.map */
