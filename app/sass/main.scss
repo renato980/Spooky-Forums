@@ -1,0 +1,57 @@
+$background-color: #090b11;
+$second-color: #161a1f;
+$orange-color: #ff8533;
+
+body {
+  font-family: sans-serif;
+  background-color: $background-color;
+  color: white;
+  margin: 0px;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: $second-color;
+  li {
+    float: left;
+  }
+  li.right {
+    float: right;
+  }
+  a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  a:hover:not(.active) {
+    background-color: $orange-color;
+  }
+  a.active {
+    background-color: $orange-color;
+  }
+}
+
+main {
+  padding: 0 25px;
+}
+
+footer {
+  background-color: $second-color;
+  color: $orange-color;
+  width: 100%;
+  bottom: 0;
+  div {
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav li.right,
+  .nav li {float: none;}
+}
