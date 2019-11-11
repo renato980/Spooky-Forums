@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="sass/main.css">
+    <link rel="stylesheet" type="text/css" href="sass/register.css">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="right"><a class="active" href="register.html">Sign Up</a></li>
+        <li class="right"><a href="login.html">Log In</a></li>
+    </ul>
+    <main>
+        <h1>Sign Up</h1>
+        <p>Sign up to join the spooky forums community!</p>
+        <div class="container">
+            <form action="/action_page.php">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="name" placeholder="Your Full Name">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Your Email Address">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject Here">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here.."></textarea>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
