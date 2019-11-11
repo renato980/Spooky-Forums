@@ -1,9 +1,8 @@
-
-    "Data" {
-      "Name": "Shannon Wit",
-      "Password": "PasswordU&^",
-      "Email": "Raymond@gmail.com",
-      "Last Login": "May 2, 2012",
-      "Time": "10:45AM",
-      "Review-Score": "4.5",
-      }
+"data" {
+	"name": "First Last",
+  "password": "Password",
+  "email": "name@gmail.com",
+  "last-login": "May 2, 2012",
+  "time": "10:45 AM",
+  "score": "4.5"
+}
