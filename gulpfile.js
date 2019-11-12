@@ -6,7 +6,10 @@ const htmlValidator = require(`gulp-html`);
 const imageCompressor = require(`gulp-imagemin`);
 const browserSync = require(`browser-sync`);
 const reload = browserSync.reload;
+const TEMP_FOLDER = `.tmp/`;
+const VIEWS_FOLDER = `app/views/`;
 let browserChoice = `default`;
+
 
 async function safari () {
     browserChoice = `safari`;
@@ -39,24 +42,24 @@ async function allBrowsers () {
 }
 
 let dev = () => {
-    return src(`app/*.html`)
+    return src(`app/views/*.html`)
 		.pipe(htmlValidator());
 };
 
 let build = () => {
-    return src(`app/*.html`)
+    return src(`app/views/*.html`)
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod/`));
 };
 
-gulp.task('styles', () => {
+let styles = () => {
     return gulp.src('app/scss/main.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('app/css'));
-});
+};
 
-let compileCSSForDev = () => {
-    return src(`dev/styles/main.scss`)
+let cssDev = () => {
+    return src(`app/views/styles/*.scss`)
         .pipe(sass({
             outputStyle: `expanded`,
             precision: 10
@@ -64,8 +67,8 @@ let compileCSSForDev = () => {
         .pipe(dest(`temp/styles`));
 };
 
-let compileCSSForProd = () => {
-    return src(`dev/styles/main.scss`)
+let cssProd = () => {
+    return src(`app/views/styles/*.scss`)
         .pipe(sass({
             outputStyle: `compressed`,
             precision: 10
@@ -74,7 +77,7 @@ let compileCSSForProd = () => {
 };
 
 let compressImages = () => {
-    return src(`dev/img/**/*`)
+    return src(`app/views/img/**/*`)
         .pipe(cache(
             imageCompressor({
                 optimizationLevel: 3, // For PNG files. Accepts 0 – 7; 3 is default.
@@ -92,20 +95,18 @@ let serve = () => {
         reloadDelay: 0,
         server: {
             baseDir: [
-                `temp`,
-                `html`
+                `TEMP_FOLDER`,
+                `VIEWS_FOLDER`
             ]
         }
     });
-		watch(`dev/styles/**/*.scss`,
+		watch(`app/views/styles/**/*.scss`,
         series(compileCSSForDev)
     ).on(`change`, reload);
 
-    watch(`dev/html/**/*.html`,
-        series(validateHTML)
+    watch(`app/views/html/*.html`,
+        series(dev)
     ).on(`change`, reload);
-
-    watch(`app/*.html`, series(dev)).on(`change`, reload);
 };
 
 exports.safari = series(safari, serve);
@@ -115,9 +116,10 @@ exports.opera = series(opera, serve);
 exports.edge = series(edge, serve);
 exports.safari = series(safari, serve);
 exports.allBrowsers = series(allBrowsers, serve);
-exports.validateHTML = validateHTML;
-exports.compressHTML = compressHTML;
 exports.compressImages = compressImages;
+exports.cssDev = cssDev;
+exports.cssProd = cssProd;
 exports.dev = dev;
 exports.build = build;
+exports.styles = styles;
 exports.serve = series(dev, serve);
