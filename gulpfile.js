@@ -1,4 +1,5 @@
 const { src, dest, watch, series } = require(`gulp`);
+const del = require(`del`);
 const sass = require(`gulp-sass`);
 const htmlCompressor = require(`gulp-htmlmin`);
 const htmlValidator = require(`gulp-html`);
@@ -48,6 +49,30 @@ let build = () => {
         .pipe(dest(`prod/`));
 };
 
+gulp.task('styles', () => {
+    return gulp.src('app/scss/main.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('app/css'));
+});
+
+let compileCSSForDev = () => {
+    return src(`dev/styles/main.scss`)
+        .pipe(sass({
+            outputStyle: `expanded`,
+            precision: 10
+        }).on(`error`, sass.logError))
+        .pipe(dest(`temp/styles`));
+};
+
+let compileCSSForProd = () => {
+    return src(`dev/styles/main.scss`)
+        .pipe(sass({
+            outputStyle: `compressed`,
+            precision: 10
+        }).on(`error`, sass.logError))
+        .pipe(dest(`prod/styles`));
+};
+
 let compressImages = () => {
     return src(`dev/img/**/*`)
         .pipe(cache(
@@ -72,6 +97,14 @@ let serve = () => {
             ]
         }
     });
+		watch(`dev/styles/**/*.scss`,
+        series(compileCSSForDev)
+    ).on(`change`, reload);
+
+    watch(`dev/html/**/*.html`,
+        series(validateHTML)
+    ).on(`change`, reload);
+
     watch(`app/*.html`, series(dev)).on(`change`, reload);
 };
 
