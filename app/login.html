@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="sass/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+		<link rel="stylesheet" type="text/css" href="styles/login.css">
 </head>
 <body>
     <ul class="nav">
@@ -14,7 +15,16 @@
         <li class="right"><a class="active" href="login.html">Log In</a></li>
     </ul>
     <main>
-        <h1>Login Page</h1>
+				<h1>Log In</h1>
+				<div class="container">
+						<form action="/action_page.php">
+								<label for="username">Username</label>
+								<input type="text" id="username" name="username" placeholder="Username">
+								<label for="password">Password</label>
+								<input type="text" id="password" name="password" placeholder="Password">
+								<input type="submit" value="Log In" id="submit">
+						</form>
+				</div>
     </main>
 </body>
 </html>

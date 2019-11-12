@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="sass/main.css">
-    <link rel="stylesheet" type="text/css" href="sass/register.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/register.css">
 </head>
 <body>
     <ul class="nav">
@@ -19,15 +19,17 @@
         <p>Sign up to join the spooky forums community!</p>
         <div class="container">
             <form action="/action_page.php">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="name" placeholder="Your Full Name">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name">
+								<label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Your Email Address">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Subject Here">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Write your message here.."></textarea>
-                <input type="submit" value="Submit" id="submit">
+								<label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username">
+								<label for="password">Password</label>
+                <input type="text" id="password" name="password" placeholder="Password">
+                <input type="submit" value="Sign Up" id="submit">
             </form>
         </div>
     </main>
