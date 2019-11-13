@@ -52,12 +52,6 @@ let build = () => {
         .pipe(dest(`prod/`));
 };
 
-let styles = () => {
-    return gulp.src('app/scss/main.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('app/css'));
-};
-
 let cssDev = () => {
     return src(`app/views/styles/*.scss`)
         .pipe(sass({
