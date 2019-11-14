@@ -16,6 +16,12 @@
   height: 300px;
 }
 
+/* added this*/
+img {
+	width: 100%;
+	height: 60%;
+}
+
 .row {
   text-align: center;
 }
