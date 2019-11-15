@@ -62,6 +62,12 @@ figure {
 	padding-top: 20px
 }
 
+figure:hover {
+	-moz-box-shadow: 0 0 5px #ff8533;
+	-webkit-box-shadow: 0 0 5px #ff8533;
+	box-shadow: 0 0 5px #ff8533;
+}
+
 figure img {
 	width: 100%;
 }
@@ -104,13 +110,13 @@ figcaption {
 }
 
 /* Responsive layout */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
   .column {
     width: 100%;
   }
 	figure {
 		display: inline-block;
-		width: 50%;
+		width: 70%;
 		height: 50%;
 	}
 }
