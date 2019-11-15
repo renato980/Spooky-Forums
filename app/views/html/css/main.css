@@ -12,12 +12,15 @@ body {
   overflow: hidden;
   background-color: #161a1f;
 }
+
 .nav li {
   float: left;
 }
+
 .nav li.right {
   float: right;
 }
+
 .nav a {
   display: block;
   color: white;
@@ -25,9 +28,11 @@ body {
   padding: 14px 16px;
   text-decoration: none;
 }
+
 .nav a:hover:not(.active) {
   background-color: #ff8533;
 }
+
 .nav a.active {
   background-color: #ff8533;
 }
@@ -38,13 +43,14 @@ main {
 
 footer {
   background-color: #161a1f;
-  color: #ff8533;
   width: 100%;
   bottom: 0;
 }
+
 footer div {
-  text-align: center;
-  padding: 20px;
+  padding-top: 20px;
+	text-align: center;
+	padding-bottom: 25px;
 }
 
 @media screen and (max-width: 600px) {
@@ -53,5 +59,3 @@ footer div {
     float: none;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
