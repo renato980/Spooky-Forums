@@ -6,10 +6,13 @@ main h1 {
   text-align: center;
   margin-bottom: 0px;
 }
+
 main p {
   margin-top: 0px;
   padding-top: 10px;
   text-align: center;
+	font-size: 17px;
+	margin-bottom: 0;
 }
 
 .container {
@@ -50,4 +53,8 @@ form input, textarea {
   opacity: 0.9;
 }
 
-/*# sourceMappingURL=register.css.map */
+@media screen and (max-width: 600px) {
+	.container {
+		width: 70%;
+	}
+}

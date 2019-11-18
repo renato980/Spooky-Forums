@@ -6,7 +6,6 @@
 .game_desc {
   background-color: #161a1f;
   width: 100%;
-	float: left;
 	height: 100%;
 	margin-bottom: 40px;
 }
@@ -42,17 +41,56 @@ figure img {
 	text-align: center;
 }
 
-.review {
-	float: left;
+.review_block {
 	background-color: #161a1f;
-	padding: 15px;
-	padding-top: 0;
-	padding-bottom: 0;
+	padding: 1px 15px 15px 5px;
 	margin-bottom: 25px;
 }
 
-.review h3 {
+.review_block h3 {
 	color: #ff8533;
+}
+
+#review_head {
+	color: #ff8533;
+	margin-bottom: 20px;
+}
+
+.write {
+  width: 100%;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+form #title, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+#review {
+  height: 200px;
+}
+
+#submit {
+  background-color: #ff8533;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #ff8533;
+  opacity: 0.9;
 }
 
 /* Make columns responsive */

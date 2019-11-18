@@ -11,8 +11,10 @@ main {
   height: 100%;
 }
 
+/* Opening Section */
+
 #opening {
-  padding-top: 75px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
@@ -25,9 +27,8 @@ main {
   padding-bottom: 25px;
 }
 
-#register {
+#button {
   background-color: #ff8533;
-  color: white;
   font-weight: bold;
   font-size: 18px;
   padding: 15px 35px;
@@ -36,30 +37,34 @@ main {
   cursor: pointer;
 }
 
+#register {
+	color: white;
+	text-decoration: none;
+}
+
 button:hover {
   background-color: #ff8533;
   opacity: 0.9;
 }
 
-* {
-  box-sizing: border-box;
-}
+/* Featured Games */
 
 #featured {
-	font-size: 24px;
 	color: #ff8533;
 }
 
 section {
 	display: table;
-	border-collapse: separate;
-  border-spacing: 35px 0px;
+	white-space: nowrap;
 }
 
 figure {
-	display: table-cell;
 	background-color: #161a1f;
-	padding-top: 20px
+	display: inline-block;
+	overflow: auto;
+	padding-top: 20px;
+	width: 29%;
+	margin: 15px;
 }
 
 figure:hover {
@@ -79,8 +84,10 @@ figcaption {
 	font-weight: bold;
 }
 
+/* Latest News */
+
 #news {
-	margin-top: 60px;
+	margin-top: 70px;
 	font-size: 24px;
 	color: #ff8533;
 }
@@ -92,8 +99,8 @@ figcaption {
 }
 
 .post {
-  float: left;
   width: 100%;
+	padding: 0.5px;
   background-color: #161a1f;
 	margin-bottom: 20px;
 }
@@ -111,12 +118,12 @@ figcaption {
 
 /* Responsive layout */
 @media screen and (max-width: 800px) {
-  .column {
-    width: 100%;
-  }
+	section {
+		display: table;
+		white-space: normal;
+	}
 	figure {
 		display: inline-block;
-		width: 70%;
-		height: 50%;
+		width: 60%;
 	}
 }

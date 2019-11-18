@@ -1,9 +1,6 @@
-body {
-  font-family: sans-serif;
-}
-
-main h2 {
+main h1 {
   text-align: center;
+	margin-bottom: 0;
 }
 
 .container {
@@ -44,4 +41,8 @@ form input, textarea {
   opacity: 0.9;
 }
 
-/*# sourceMappingURL=contact.css.map */
+@media screen and (max-width: 600px) {
+	.container {
+		width: 70%;
+	}
+}

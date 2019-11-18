@@ -8,14 +8,16 @@
 
 section {
 	display: table;
-	border-collapse: separate;
-  border-spacing: 25px 15px;
+	white-space: nowrap;
 }
 
 figure {
-	display: table-cell;
 	background-color: #161a1f;
-	padding-top: 20px
+	display: inline-block;
+	overflow: auto;
+	padding-top: 20px;
+	width: 29%;
+	margin: 15px;
 }
 
 figure:hover {

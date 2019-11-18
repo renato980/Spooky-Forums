@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Alien: Isolation</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/forum.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
         <li class="right"><a href="login.html">Log In</a></li>
     </ul>
     <main>
-        <h2 id="game_head">Alien: Isolation</h2>
+        <h1 id="game_head">Alien: Isolation</h1>
 				<section class="game_desc">
 						<section class="game_img">
 								<figure>
@@ -39,7 +39,7 @@
 				</section>
         <section class="messageboard">
         		<h2>Reviews</h2>
-						<div class="review">
+						<div class="review_block">
                 <h3>Review 1</h3>
 								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 								bloodier than ever. Featuring a stunning visual presentation, updated controls and
@@ -48,7 +48,7 @@
 								cryptic puzzles, resource conservation and encounters with infected freaks, this one
 								is best enjoyed with the lights down and the volume up.</p>
             </div>
-            <div class="review">
+            <div class="review_block">
 								<h3>Review 2</h3>
 								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 								bloodier than ever. Featuring a stunning visual presentation, updated controls and
@@ -57,8 +57,8 @@
 								cryptic puzzles, resource conservation and encounters with infected freaks, this one
 								is best enjoyed with the lights down and the volume up.</p>
             </div>
-						<div class="review">
-								<h3>Review 2</h3>
+						<div class="review_block">
+								<h3>Review 3</h3>
 								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 								bloodier than ever. Featuring a stunning visual presentation, updated controls and
 								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
@@ -66,6 +66,16 @@
 								cryptic puzzles, resource conservation and encounters with infected freaks, this one
 								is best enjoyed with the lights down and the volume up.</p>
             </div>
+				</section>
+				<section class="write">
+						<h2 id="review_head">Write A Review</h2>
+						<form action="/action_page.php">
+								<label for="title">Title</label>
+								<input type="text" id="title" name="title" placeholder="Title of Review">
+								<label for="review">Review</label>
+								<textarea id="review" name="review" placeholder="Write your review here.."></textarea>
+								<input type="submit" value="Submit" id="submit">
+						</form>
         </section>
     </main>
 </body>
