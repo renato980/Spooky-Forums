@@ -36,9 +36,9 @@
 			 			  uncover her true identity and meet interesting characters along the way.</p>
 					 </div>
 			</section>
-			<section class="messageboard">
+			<div class="messageboard">
 					<h2>Reviews</h2>
-					<div class="review">
+					<div class="review_block">
 							<h3>Review 1</h3>
 							<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 							bloodier than ever. Featuring a stunning visual presentation, updated controls and
@@ -47,7 +47,7 @@
 							cryptic puzzles, resource conservation and encounters with infected freaks, this one
 							is best enjoyed with the lights down and the volume up.</p>
 					</div>
-					<div class="review">
+					<div class="review_block">
 							<h3>Review 2</h3>
 							<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 							bloodier than ever. Featuring a stunning visual presentation, updated controls and
@@ -56,8 +56,8 @@
 							cryptic puzzles, resource conservation and encounters with infected freaks, this one
 							is best enjoyed with the lights down and the volume up.</p>
 					</div>
-					<div class="review">
-							<h3>Review 2</h3>
+					<div class="review_block">
+							<h3>Review 3</h3>
 							<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 							bloodier than ever. Featuring a stunning visual presentation, updated controls and
 							immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
@@ -65,7 +65,13 @@
 							cryptic puzzles, resource conservation and encounters with infected freaks, this one
 							is best enjoyed with the lights down and the volume up.</p>
 					</div>
-				</section>
-    </main>
+			</div>
+			<section class="write_review">
+					<form action="/action_page.php">
+							<textarea id="review" name="review" placeholder="Write your review here.."></textarea>
+							<input type="submit" value="Submit" id="submit">
+					</form>
+			</section>
+	</main>
 </body>
 </html>

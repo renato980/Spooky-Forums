@@ -1,4 +1,4 @@
-#game_head {
+main h1 {
 	padding-top: 20px;
 	padding-bottom: 5px;
 	margin: 0;
@@ -6,9 +6,12 @@
 	color: #ff8533;
 }
 
+/* Game Blocks */
+
 section {
 	display: table;
 	white-space: nowrap;
+	text-align: center;
 }
 
 figure {
@@ -26,29 +29,29 @@ figure:hover {
 	box-shadow: 0 0 5px #ff8533;
 }
 
+figure img {
+	width: 100%;
+}
+
+figure h3 {
+	padding-bottom: 20px;
+	text-align: center;
+	margin: 0;
+}
+
 figure a {
 	text-decoration: none;
 	color: white;
 }
 
-figure img {
-	width: 100%;
-}
-
-figcaption {
-	padding-bottom: 20px;
-	text-align: center;
-	font-size: 20px;
-	font-weight: bold;
-}
-
 /* Responsive layout */
 @media screen and (max-width: 700px) {
+	section {
+		display: table;
+		white-space: normal;
+	}
 	figure {
 		display: inline-block;
-		margin-left: 15%;
-		margin-top: 0;
 		width: 70%;
-		height: 50%;
 	}
 }

@@ -15,40 +15,40 @@
         <li class="right"><a href="login.html">Log In</a></li>
     </ul>
     <main>
-        <h2 id="game_head">Dead Space</h2>
+        <h1 id="game_head">Dead Space</h1>
 				<section class="game_desc">
 						<section class="game_img">
 								<figure>
-										<img alt="alien" src="../img/ds.jpg">
+										<img alt="ds" src="../img/ds.jpg">
 								</figure>
 								<figure>
-										<img alt="alien" src="../img/ds.jpg">
+										<img alt="ds" src="../img/ds.jpg">
 								</figure>
 								<figure>
-										<img alt="alien" src="../img/ds.jpg">
+										<img alt="ds" src="../img/ds.jpg">
 								</figure>
 					 </section>
 					 <div class="about">
-					 		<h2>About the Game:</h2>
-							<p>Review Score: 5/5</p>
-							<p>The USG Ishimura sends out a distress signal and the Kellion is sent to investigate.
-					 		When their ship malfunctions and crashes into the Ishimura they encounter horrific monstrtosities.
-						  Take control of engineer Isaac Clarke and survive against these grotesque monsters and escape
-						  the Ishimura.</p>
+					 			<h2>About The Game:</h2>
+								<p>Review Score: 5.0</p>
+								<p>The USG Ishimura sends out a distress signal and the Kellion is sent to investigate.
+								When their ship malfunctions and crashes into the Ishimura they encounter horrific monstrtosities.
+								Take control of engineer Isaac Clarke and survive against these grotesque monsters and escape
+								the Ishimura.</p>
 					 </div>
 				</section>
-				<section class="messageboard">
+				<div class="messageboard">
 						<h2>Reviews</h2>
-						<div class="review">
-								<h3>Review 1</h3>
+            <div class="review_block">
+                <h3>Review 1</h3>
 								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 								bloodier than ever. Featuring a stunning visual presentation, updated controls and
 								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
 								Department to life (and death) like never before. Offering a bone-chilling blend of
 								cryptic puzzles, resource conservation and encounters with infected freaks, this one
 								is best enjoyed with the lights down and the volume up.</p>
-						</div>
-						<div class="review">
+            </div>
+            <div class="review_block">
 								<h3>Review 2</h3>
 								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 								bloodier than ever. Featuring a stunning visual presentation, updated controls and
@@ -56,17 +56,23 @@
 								Department to life (and death) like never before. Offering a bone-chilling blend of
 								cryptic puzzles, resource conservation and encounters with infected freaks, this one
 								is best enjoyed with the lights down and the volume up.</p>
-						</div>
-						<div class="review">
-								<h3>Review 2</h3>
+            </div>
+						<div class="review_block">
+								<h3>Review 3</h3>
 								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
 								bloodier than ever. Featuring a stunning visual presentation, updated controls and
 								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
 								Department to life (and death) like never before. Offering a bone-chilling blend of
 								cryptic puzzles, resource conservation and encounters with infected freaks, this one
 								is best enjoyed with the lights down and the volume up.</p>
-						</div>
-				</section>
+            </div>
+        </div>
+				<section class="write_review">
+						<form action="/action_page.php">
+								<textarea id="review" name="review" placeholder="Write your review here.."></textarea>
+								<input type="submit" value="Submit" id="submit">
+						</form>
+        </section>
     </main>
 </body>
 </html>

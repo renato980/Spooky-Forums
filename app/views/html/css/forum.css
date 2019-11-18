@@ -3,6 +3,8 @@
   text-align: center;
 }
 
+/* Game Description */
+
 .game_desc {
   background-color: #161a1f;
   width: 100%;
@@ -32,45 +34,46 @@ figure img {
 	padding-top: 0;
 }
 
-.messageboard {
-  width: 100%;
-}
+/* Review Board */
 
 .messageboard h2 {
 	color: #ff8533;
 	text-align: center;
+	font-size: 26px;
 }
 
 .review_block {
-	background-color: #161a1f;
-	padding: 1px 15px 15px 5px;
-	margin-bottom: 25px;
-}
-
-.review_block h3 {
-	color: #ff8533;
-}
-
-#review_head {
-	color: #ff8533;
+  width: 100%;
+	padding: 0.5px;
+  background-color: #161a1f;
 	margin-bottom: 20px;
 }
 
-.write {
-  width: 100%;
-	font-weight: bold;
+.review_block h3 {
+  text-align: left;
+  padding-left: 15px;
+	color: #ff8533;
+}
+
+.review_block p {
+	padding-left: 15px;
+	text-align: left;
+}
+
+/* Write A Review */
+
+.write_review {
 	margin-bottom: 40px;
 }
 
-form #title, textarea {
+form textarea {
   width: 100%;
-  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+	font-family: sans-serif;
+	box-sizing: border-box;
+	margin-bottom: 18px;
+	padding: 10px;
 }
 
 #review {

@@ -3,6 +3,8 @@ main h1 {
 	margin-bottom: 0;
 }
 
+/* Contact Form*/
+
 .container {
   font-weight: bold;
   padding: 30px;
@@ -10,15 +12,15 @@ main h1 {
   margin: 0 auto;
 }
 
-form input, textarea {
+form input, select, textarea {
   width: 100%;
-  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+	font-family: sans-serif;
+  margin-top: 5px;
+  margin-bottom: 18px;
+	padding: 10px;
 }
 
 #message {
@@ -41,6 +43,7 @@ form input, textarea {
   opacity: 0.9;
 }
 
+/* Responsive Layout */
 @media screen and (max-width: 600px) {
 	.container {
 		width: 70%;
