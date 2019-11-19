@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   background-color: #090b11;
   color: white;
-  margin: 0px;
+  margin: 0;
 }
 
 .nav {
@@ -50,7 +50,8 @@ footer {
 footer div {
   padding-top: 20px;
 	text-align: center;
-	padding-bottom: 25px;
+	padding-bottom: 20px;
+	font-size: 14px;
 }
 
 @media screen and (max-width: 600px) {

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Dead Space 2</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/forum.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <ul class="nav">
@@ -15,30 +16,83 @@
         <li class="right"><a href="login.html">Log In</a></li>
     </ul>
     <main>
-        <h2 id="game_head">Dead Space 2</h2>
-        <div class="row">
-            <div class="column">
-								  <img src="../img/ib.jpg">
-            </div>
-            <div class="column2">
-                <h2>About the Game:</h2>
-                <p>Review Score: 5/5</p>
+        <h1 class="game_head">Dead Space 2</h1>
+				<section class="game_desc">
+						<section class="game_img">
+								<figure>
+										<img alt="ds2" src="../img/ds2.jpg">
+								</figure>
+								<figure>
+										<img alt="ds2" src="../img/ds2.jpg">
+								</figure>
+								<figure>
+										<img alt="ds2" src="../img/ds2.jpg">
+								</figure>
+					 </section>
+					 <div class="about">
+					 			<h2>A Monster of a Sequel</h2>
+								<p>Review Score:
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star-half-full checked"></span>
+								</p>
 								<p>The second entry in the Dead Space series. Three years after Dead Space,
-								Isaac Clarke awakens in a space station called the "Sprawl". There is a new necropmorph
-							  oubreak aboard the Sprawl and it is up to Isaac to stop it and uncover the truth of
-							  the outbreak and the dimentia he is now experiencing.</p>
+								Isaac Clarke awakens in a space station called the "Sprawl." There is a new necropmorph
+								oubreak aboard the Sprawl and it is up to Isaac to stop it and uncover the truth of
+								the outbreak and the dimentia he is now experiencing.</p><br>
+								<h4>Enter the Sprawl</h4>
+								<p>The threat facing Isaac is no longer confined to a singular space station. You'll face Necromorphs
+								in Zero G environments. Strap on your suit boosters, blast through the Church of Unitology, and jet
+								across the Solar Array.</p><br>
+								<h4>Fight a deadlier enemy</h4>
+								<p>New Necromorph breeds await, including the stealthy Stalker strain and creepy, infested children
+								known as The Pack. Use your unconventional arsenal of traditional firearms, like the mine-shooting
+								Detonator, and weaponized engineering tools, like the rapid-fire Rivet Gun, and you just might make
+								it out alive.</p><br>
+								<h4>Are you crazy?</h4>
+								<p>Delve into the mysteries surrounding the Necromorph infestation and learn more about Isaac
+								Clarke's tortured past. You may even catch a glimpse of the elusive engineer's face as he interacts
+								with the precious few survivors aboard The Sprawl.</p>
+					 </div>
+				</section>
+				<div class="messageboard">
+						<h2>Reviews</h2>
+            <div class="review_block">
+                <h3>Review 1</h3>
+								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
+								bloodier than ever. Featuring a stunning visual presentation, updated controls and
+								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
+								Department to life (and death) like never before. Offering a bone-chilling blend of
+								cryptic puzzles, resource conservation and encounters with infected freaks, this one
+								is best enjoyed with the lights down and the volume up.</p>
+            </div>
+            <div class="review_block">
+								<h3>Review 2</h3>
+								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
+								bloodier than ever. Featuring a stunning visual presentation, updated controls and
+								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
+								Department to life (and death) like never before. Offering a bone-chilling blend of
+								cryptic puzzles, resource conservation and encounters with infected freaks, this one
+								is best enjoyed with the lights down and the volume up.</p>
+            </div>
+						<div class="review_block">
+								<h3>Review 3</h3>
+								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
+								bloodier than ever. Featuring a stunning visual presentation, updated controls and
+								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
+								Department to life (and death) like never before. Offering a bone-chilling blend of
+								cryptic puzzles, resource conservation and encounters with infected freaks, this one
+								is best enjoyed with the lights down and the volume up.</p>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="messageboard">
-                <h2>Reviews</h2>
-                <p> Reviews will go here</p>
-            </div
-        </div>
+				<section class="write_review">
+						<form action="/action_page.php">
+								<textarea id="review" name="review" placeholder="Write your review here.."></textarea>
+								<input type="submit" value="Submit" id="submit">
+						</form>
+        </section>
     </main>
-    <!--<footer>
-        <div>Spooky Forums</div>
-    </footer>-->
 </body>
 </html>

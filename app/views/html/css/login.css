@@ -50,4 +50,8 @@ form input, textarea {
   opacity: 0.9;
 }
 
-/*# sourceMappingURL=register.css.map */
+@media screen and (max-width: 600px) {
+	.container {
+		width: 70%;
+	}
+}

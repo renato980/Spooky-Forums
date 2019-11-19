@@ -1,10 +1,9 @@
-body {
-  font-family: sans-serif;
+main h1 {
+  text-align: center;
+	margin-bottom: 0;
 }
 
-main h2 {
-  text-align: center;
-}
+/* Contact Form*/
 
 .container {
   font-weight: bold;
@@ -13,15 +12,15 @@ main h2 {
   margin: 0 auto;
 }
 
-form input, textarea {
+form input, select, textarea {
   width: 100%;
-  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+	font-family: sans-serif;
+  margin-top: 5px;
+  margin-bottom: 18px;
+	padding: 10px;
 }
 
 #message {
@@ -44,4 +43,9 @@ form input, textarea {
   opacity: 0.9;
 }
 
-/*# sourceMappingURL=contact.css.map */
+/* Responsive Layout */
+@media screen and (max-width: 600px) {
+	.container {
+		width: 70%;
+	}
+}

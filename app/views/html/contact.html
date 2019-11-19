@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/contact.css">
 </head>
 <body>
@@ -15,15 +15,18 @@
         <li class="right"><a href="login.html">Log In</a></li>
     </ul>
     <main>
-        <h2>Contact Page</h2>
+        <h1>Contact Us</h1>
         <div class="container">
             <form action="/action_page.php">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="name" placeholder="Your Full Name">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Your Email Address">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Subject Here">
+								<label for="subject">Subject</label>
+								<select id="subject" name="subject">
+										<option value="recommend">Recommend A Game</option>
+										<option value="other">Other</option>
+								</select>
                 <label for="message">Message</label>
                 <textarea id="message" name="message" placeholder="Write your message here.."></textarea>
                 <input type="submit" value="Submit" id="submit">
