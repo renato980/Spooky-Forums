@@ -15,7 +15,7 @@ main {
 
 #opening {
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 #opening h2 {
@@ -47,6 +47,7 @@ button:hover {
 
 #featured {
 	color: #ff8533;
+	margin-bottom: 10px;
 }
 
 section {
@@ -89,13 +90,8 @@ figure a {
 #latest {
 	margin-top: 70px;
 	font-size: 24px;
+	margin-bottom: 25px;
 	color: #ff8533;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .news {

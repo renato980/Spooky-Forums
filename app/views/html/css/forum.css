@@ -35,7 +35,12 @@ figure img {
 }
 
 .checked {
-  color: orange;
+  color: #ff8533;
+}
+
+.about h4 {
+	margin: 0;
+	padding: 0;
 }
 
 /* Review Board */
@@ -50,7 +55,7 @@ figure img {
   width: 100%;
 	padding: 0.5px;
   background-color: #161a1f;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 
 .review_block h3 {
@@ -67,6 +72,7 @@ figure img {
 /* Write A Review */
 
 .write_review {
+	margin-top: 35px;
 	margin-bottom: 40px;
 }
 
