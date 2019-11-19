@@ -1,4 +1,4 @@
-#game_head {
+.game_head {
 	color: #ff8533;
   text-align: center;
 }
@@ -32,6 +32,10 @@ figure img {
 	padding: 15px;
 	text-align: center;
 	padding-top: 0;
+}
+
+.checked {
+  color: orange;
 }
 
 /* Review Board */
