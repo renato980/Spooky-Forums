@@ -1,6 +1,9 @@
 const { src, dest, watch, series } = require(`gulp`);
 const del = require(`del`);
 const sass = require(`gulp-sass`);
+const HTMLPreprocessor = require(`gulp-nunjucks-render`);
+const data = require(`gulp-data`);
+const fs = require(`fs`);
 const htmlCompressor = require(`gulp-htmlmin`);
 const htmlValidator = require(`gulp-html`);
 const imageCompressor = require(`gulp-imagemin`);
@@ -40,6 +43,17 @@ async function allBrowsers () {
         `microsoft-edge`
     ];
 }
+
+let compileHTML = () => {
+    HTMLPreprocessor.nunjucks.configure({watch: false});
+
+    return src(`app/views/html/nunjuck/contact.html`)
+		.pipe(data(function () {
+				return JSON.parse(fs.readFileSync(`./app/models/links-file.json`));
+		}))
+		.pipe(HTMLPreprocessor())
+		.pipe(dest('prod/'));
+};
 
 let dev = () => {
     return src(`app/views/*.html`)
@@ -94,12 +108,14 @@ let serve = () => {
             ]
         }
     });
-		watch(`app/views/styles/**/*.scss`,
-        series(compileCSSForDev)
-    ).on(`change`, reload);
-
-    watch(`app/views/html/*.html`,
-        series(dev)
+		watch([
+				`./app/views/*.html`,
+        `./app/views/css/*.css`,
+        `./app/controllers/*.*`,
+        `./app/controllers/**/**`,
+        `./app/models/*.json`
+			],
+        series(compileHTML)
     ).on(`change`, reload);
 };
 
@@ -115,5 +131,5 @@ exports.cssDev = cssDev;
 exports.cssProd = cssProd;
 exports.dev = dev;
 exports.build = build;
-exports.styles = styles;
-exports.serve = series(dev, serve);
+exports.compileHTML = compileHTML;
+exports.serve = series(compileHTML, serve);

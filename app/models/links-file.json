@@ -1,0 +1,70 @@
+{
+  "links": [
+    {
+      "main": [
+        {
+          "name": "Home",
+          "anchor": "../views/html/nunjuck/index.html"
+        },
+        {
+          "name": "Games",
+          "anchor": "../views/html/nunjuck/games.html"
+        },
+        {
+          "name": "Contact",
+          "anchor": "../views/html/nunjuck/contact.html"
+        },
+        {
+          "name": "Log In",
+          "anchor": "../views/html/nunjuck/login.html"
+        },
+        {
+          "name": "Sign Up",
+          "anchor": "../views/html/nunjuck/register"
+        }
+      ],
+      "games": [
+        {
+          "name": "Resident Evil",
+          "anchor": "../views/html/nunjuck/re1.html"
+        },
+        {
+          "name": "Resident Evil 2",
+          "anchor": "../views/html/nunjuck/re2.html"
+        },
+        {
+          "name": "Resident Evil 3",
+          "anchor": "../views/html/nunjuck/re3.html"
+        },
+        {
+          "name": "Silent Hill 2",
+          "anchor": "../views/html/nunjuck/sh2.html"
+        },
+        {
+          "name": "Doki-Doki Literature Club",
+          "anchor": "../views/html/nunjuck/dokidoki.html"
+        },
+				{
+          "name": "Dead Space",
+          "anchor": "../views/html/nunjuck/ds1.html"
+        },
+				{
+          "name": "Dead Space 2",
+          "anchor": "../views/html/nunjuck/ds2.html"
+        },
+				{
+          "name": "Ib",
+          "anchor": "../views/html/nunjuck/ib.html"
+        },
+				{
+          "name": "Hallow Knight",
+          "anchor": "../views/html/nunjuck/hk.html"
+        },
+				{
+          "name": "Bulb-Boy",
+          "anchor": "../views/html/nunjuck/bb.html"
+        }
+      ]
+    }
+  ]
+}

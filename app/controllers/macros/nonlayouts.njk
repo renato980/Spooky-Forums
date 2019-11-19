@@ -1,0 +1,10 @@
+{% import "../variables.njk" as vars%}
+{% macro head(title, description) -%}
+<head>
+   <meta charset="utf-8">
+   <title>{{ title }}</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   {% include '../controllers/blocks/main-css.njk' %}
+</head>
+{%- endmacro %}

@@ -1,0 +1,14 @@
+{% macro nav(choice, linkArray) %}
+<nav>
+   <ul>
+      {%- for links in linkArray -%}
+				{%- if choice == "contact" %}
+	      	{% for item in links.main %}
+						<li><a href="{{ item.anchor }}">{{ item.name }}</a></li>
+					{%- endfor -%}
+				{%- endif %}
+      {%- endfor -%}
+
+   </ul>
+</nav>
+{%- endmacro -%}
