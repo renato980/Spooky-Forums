@@ -43,6 +43,11 @@ figure img {
 	padding: 0;
 }
 
+.list {
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
 /* Review Board */
 
 .messageboard h2 {
@@ -111,5 +116,9 @@ form textarea {
 @media screen and (max-width: 750px) {
 	figure {
 		display: inline-block;
+	}
+	.list {
+		padding-left: 50px;
+		padding-right: 50px;
 	}
 }
