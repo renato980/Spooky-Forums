@@ -21,26 +21,24 @@
 figure {
 	display: table-cell;
 	background-color: #161a1f;
-	padding-top: 20px
-}
-
-figure img {
-	width: 100%;
+	padding-top: 20px;
+	img {
+		width: 100%;
+	}
 }
 
 .about {
 	padding: 15px;
 	text-align: center;
 	padding-top: 0;
+	h4 {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 .checked {
   color: #ff8533;
-}
-
-.about h4 {
-	margin: 0;
-	padding: 0;
 }
 
 /* Review Board */
@@ -56,18 +54,16 @@ figure img {
 	padding: 0.5px;
   background-color: #161a1f;
 	margin-bottom: 25px;
-}
-
-.review_block h3 {
-  text-align: left;
-  padding-left: 15px;
-	color: #ff8533;
-}
-
-.review_block p {
-	padding-left: 15px;
-	padding-right: 15px;
-	text-align: left;
+	h3 {
+		text-align: left;
+		padding-left: 15px;
+		color: #ff8533;
+	}
+	p {
+		padding-left: 15px;
+		padding-right: 15px;
+		text-align: left;
+	}
 }
 
 /* Write A Review */
