@@ -41,19 +41,6 @@ main {
   padding: 0 25px;
 }
 
-footer {
-  background-color: #161a1f;
-  width: 100%;
-  bottom: 0;
-}
-
-footer div {
-  padding-top: 20px;
-	text-align: center;
-	padding-bottom: 20px;
-	font-size: 14px;
-}
-
 @media screen and (max-width: 600px) {
   .nav li.right,
 .nav li {

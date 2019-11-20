@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+   'utilities/variables',
+   'utilities/functions',
+   'utilities/mixins';
+
+// 2. Base stuff
+@import
+   'base/base',
+   'base/fonts',
+   'base/typography',
+   'base/helpers';
+
+// 3. Layout-related sections
+@import
+   'layout/header',
+   'layout/footer';
+
+// 4. Page-specific styles
+@import
+   'pages/home';
+
+// 5. A placeholder for CSS that isn’t ready to go into its correct
+//    folder, and thus, you’re a little bit ashamed of it.
+@import
+   'shame';
