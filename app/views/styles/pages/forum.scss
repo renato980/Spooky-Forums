@@ -4,7 +4,10 @@
 }
 
 /* Game Description */
-
+.forum-list {
+	padding-left: 100px;
+	padding-right: 100px;
+}
 .game_desc {
   background-color: #161a1f;
   width: 100%;
@@ -27,6 +30,11 @@
 .forum-figure img {
 	width: 100%;
 }
+
+.forum-figure li {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
 
 .about {
 	padding: 15px;
