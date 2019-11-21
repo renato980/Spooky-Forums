@@ -1,0 +1,78 @@
+{
+  "links": [
+    {
+      "main": [
+        {
+          "name": "Home",
+          "anchor": "index.html"
+        },
+        {
+          "name": "Games",
+          "anchor": "games.html"
+        },
+        {
+          "name": "Contact",
+          "anchor": "contact.html"
+        },
+        {
+          "name": "Log In",
+          "anchor": "login.html"
+        },
+        {
+          "name": "Sign Up",
+          "anchor": "register.html"
+        }
+      ],
+      "games": [
+        {
+          "name": "Resident Evil",
+          "anchor": "forum-re1.html"
+        },
+        {
+          "name": "Resident Evil 2",
+          "anchor": "forum-re2.html"
+        },
+        {
+          "name": "Resident Evil 3",
+          "anchor": "forum-re3.html"
+        },
+        {
+          "name": "Silent Hill 2",
+          "anchor": "forum-sh2.html"
+        },
+        {
+          "name": "Doki-Doki Literature Club",
+          "anchor": "forum-dokidoki.html"
+        },
+				{
+          "name": "Dead Space",
+          "anchor": "forum-ds1.html"
+        },
+				{
+          "name": "Dead Space 2",
+          "anchor": "forum-ds2.html"
+        },
+				{
+          "name": "Ib",
+          "anchor": "forum-ib.html"
+        },
+				{
+          "name": "Hallow Knight",
+          "anchor": "forum-hk.html"
+        },
+				{
+          "name": "Luigi's Mansion 3",
+          "anchor": "forum-lm.html"
+        },
+				{
+          "name": "Pocket Mirror",
+          "anchor": "forum-pm.html"
+        },
+				{
+          "name": "Alien: Isolation",
+          "anchor": "forum-alien.html"
+        }
+      ]
+    }
+  ]
+}

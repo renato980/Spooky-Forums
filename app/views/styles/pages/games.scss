@@ -1,0 +1,57 @@
+.games-h1 {
+	padding-top: 20px;
+	padding-bottom: 5px;
+	margin: 0;
+  text-align: center;
+	color: #ff8533;
+}
+
+/* Game Blocks */
+
+.games-section {
+	display: table;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.games-figure {
+	background-color: #161a1f;
+	display: inline-block;
+	overflow: auto;
+	padding-top: 20px;
+	width: 29%;
+	margin: 15px;
+}
+
+.games-figure:hover {
+	-moz-box-shadow: 0 0 5px #ff8533;
+	-webkit-box-shadow: 0 0 5px #ff8533;
+	box-shadow: 0 0 5px #ff8533;
+}
+
+.games-figure img {
+	width: 100%;
+}
+
+.games-figure h3 {
+	padding-bottom: 20px;
+	text-align: center;
+	margin: 0;
+}
+
+.games-figure a {
+	text-decoration: none;
+	color: white;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 700px) {
+	.games-section {
+		display: table;
+		white-space: normal;
+	}
+	.games-figure {
+		display: inline-block;
+		width: 70%;
+	}
+}

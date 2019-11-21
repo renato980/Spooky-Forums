@@ -1,0 +1,56 @@
+{% macro nav(choice, linkArray) %}
+	{%- if choice == "none" %}
+			<ul class="nav">
+					<li><a href="{{ linkArray[0].main[0].anchor }}">{{ linkArray[0].main[0].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[1].anchor }}">{{ linkArray[0].main[1].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[2].anchor }}">{{ linkArray[0].main[2].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[3].anchor }}">{{ linkArray[0].main[3].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[4].anchor }}">{{ linkArray[0].main[4].name }}</a></li>
+			</ul>
+	{%- endif %}
+	{%- if choice == "index" %}
+			<ul class="nav">
+					<li><a class="active" href="{{ linkArray[0].main[0].anchor }}">{{ linkArray[0].main[0].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[1].anchor }}">{{ linkArray[0].main[1].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[2].anchor }}">{{ linkArray[0].main[2].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[3].anchor }}">{{ linkArray[0].main[3].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[4].anchor }}">{{ linkArray[0].main[4].name }}</a></li>
+			</ul>
+	{%- endif %}
+	{%- if choice == "games" %}
+			<ul class="nav">
+					<li><a href="{{ linkArray[0].main[0].anchor }}">{{ linkArray[0].main[0].name }}</a></li>
+					<li><a class="active" href="{{ linkArray[0].main[1].anchor }}">{{ linkArray[0].main[1].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[2].anchor }}">{{ linkArray[0].main[2].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[3].anchor }}">{{ linkArray[0].main[3].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[4].anchor }}">{{ linkArray[0].main[4].name }}</a></li>
+			</ul>
+	{%- endif %}
+	{%- if choice == "contact" %}
+			<ul class="nav">
+					<li><a href="{{ linkArray[0].main[0].anchor }}">{{ linkArray[0].main[0].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[1].anchor }}">{{ linkArray[0].main[1].name }}</a></li>
+					<li><a class="active" href="{{ linkArray[0].main[2].anchor }}">{{ linkArray[0].main[2].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[3].anchor }}">{{ linkArray[0].main[3].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[4].anchor }}">{{ linkArray[0].main[4].name }}</a></li>
+			</ul>
+	{%- endif %}
+	{%- if choice == "login" %}
+			<ul class="nav">
+					<li><a href="{{ linkArray[0].main[0].anchor }}">{{ linkArray[0].main[0].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[1].anchor }}">{{ linkArray[0].main[1].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[2].anchor }}">{{ linkArray[0].main[2].name }}</a></li>
+					<li class="right"><a class="active" href="{{ linkArray[0].main[3].anchor }}">{{ linkArray[0].main[3].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[4].anchor }}">{{ linkArray[0].main[4].name }}</a></li>
+			</ul>
+	{%- endif %}
+	{%- if choice == "register" %}
+			<ul class="nav">
+					<li><a href="{{ linkArray[0].main[0].anchor}}">{{ linkArray[0].main[0].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[1].anchor }}">{{ linkArray[0].main[1].name }}</a></li>
+					<li><a href="{{ linkArray[0].main[2].anchor }}">{{ linkArray[0].main[2].name }}</a></li>
+					<li class="right"><a href="{{ linkArray[0].main[3].anchor }}">{{ linkArray[0].main[3].name }}</a></li>
+					<li class="right"><a class="active" href="{{ linkArray[0].main[4].anchor }}">{{ linkArray[0].main[4].name }}</a></li>
+			</ul>
+	{%- endif %}
+{%- endmacro -%}

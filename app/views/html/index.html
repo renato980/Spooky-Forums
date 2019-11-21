@@ -1,0 +1,16 @@
+{%- import 'app/controllers/variables.njk' as vars -%}
+{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
+{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ nonlayouts.head(vars.title1)}}
+</head>
+<body>
+  {{ layouts.nav('index', links) }}
+
+	{%- include 'app/controllers/blocks/index.njk' -%}
+
+	{%- include 'app/controllers/blocks/footer.njk' -%}
+</body>
+</html>

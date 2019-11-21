@@ -1,0 +1,126 @@
+.home-main {
+  text-align: center;
+}
+
+#orange {
+  color: #ff8533;
+}
+
+#banner {
+  width: 100%;
+  height: 100%;
+}
+
+/* Opening Section */
+
+#opening {
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+#opening h2 {
+	color: #ff8533;
+	font-size: 24px;
+}
+
+#opening p {
+  padding-bottom: 25px;
+}
+
+#home-button {
+  background-color: #ff8533;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+	color: white;
+}
+
+button:hover {
+  background-color: #ff8533;
+  opacity: 0.9;
+}
+
+/* Featured Games */
+
+#featured {
+	color: #ff8533;
+	margin-bottom: 10px;
+}
+
+.home-section {
+	display: table;
+	white-space: nowrap;
+}
+
+.home-figure {
+	background-color: #161a1f;
+	display: inline-block;
+	overflow: auto;
+	padding-top: 20px;
+	width: 29%;
+	margin: 15px;
+}
+
+.home-figure:hover {
+	-moz-box-shadow: 0 0 5px #ff8533;
+	-webkit-box-shadow: 0 0 5px #ff8533;
+	box-shadow: 0 0 5px #ff8533;
+}
+
+.home-figure img {
+	width: 100%;
+}
+
+.home-figure h3 {
+	padding-bottom: 20px;
+	text-align: center;
+	margin: 0;
+}
+
+.home-figure a {
+	text-decoration: none;
+	color: white;
+}
+
+/* Latest News */
+
+#latest {
+	margin-top: 70px;
+	font-size: 24px;
+	margin-bottom: 25px;
+	color: #ff8533;
+}
+
+.news {
+  width: 100%;
+	padding: 0.5px;
+  background-color: #161a1f;
+	margin-bottom: 20px;
+}
+
+.news h3 {
+  text-align: left;
+  padding-left: 15px;
+	color: #ff8533;
+}
+
+.news p {
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: left;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 800px) {
+	.home-section {
+		display: table;
+		white-space: normal;
+	}
+	.home-figure {
+		display: inline-block;
+		width: 60%;
+	}
+}
