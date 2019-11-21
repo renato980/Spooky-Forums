@@ -1,102 +1,14 @@
+{%- import 'app/controllers/variables.njk' as vars -%}
+{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
+{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Games</title>
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/games.css">
+  {{ nonlayouts.head(vars.title2)}}
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="games.html">Games</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="right"><a href="register.html">Sign Up</a></li>
-        <li class="right"><a href="login.html">Log In</a></li>
-    </ul>
-    <main>
-        <h1>Spooky Games</h1>
-				<section>
-						<figure>
-								<a href="forum-alien.html">
-										<h3>Alien: Isolation</h3>
-										<img alt="alien" src="../img/alien.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-ds1.html">
-										<h3>Dead Space</h3>
-										<img alt="ds" src="../img/ds.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-ds2.html">
-										<h3>Dead Space 2</h3>
-										<img alt="ds2" src="../img/ds2.jpg">
-								</a>
-						</figure>
-				</section>
-				<section>
-						<figure>
-								<a href="forum-dokidoki.html">
-										<h3>Doki Doki</h3>
-										<img alt="doki" src="../img/dokidoki.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-hk.html">
-										<h3>Hollow Knight</h3>
-										<img alt="hk" src="../img/hk.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-ib.html">
-										<h3>Ib</h3>
-										<img alt="ib" src="../img/ib.jpg">
-								</a>
-						</figure>
-				</section>
-				<section>
-						<figure>
-								<a href="forum-lm.html">
-										<h3>Luigi's Mansion 3</h3>
-										<img alt="lm" src="../img/lm.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-pm.html">
-										<h3>Pocket Mirror</h3>
-										<img alt="pm" src="../img/pm.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-re1.html">
-										<h3>Resident Evil</h3>
-										<img alt="re" src="../img/re.jpg">
-								</a>
-						</figure>
-				</section>
-				<section>
-						<figure>
-								<a href="forum-re2.html">
-										<h3>Resident Evil 2</h3>
-										<img alt="re2" src="../img/re2.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-re3.html">
-										<h3>Resident Evil 3</h3>
-										<img alt="re3" src="../img/re3.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-sh2.html">
-										<h3>Silent Hill 2</h3>
-										<img alt="sh2" src="../img/sh2.jpg">
-								</a>
-						</figure>
-				</section>
-				<br>
-    </main>
+  {{ layouts.nav('games', links) }}
+
+	{%- include 'app/controllers/blocks/games.njk' -%}
 </body>
 </html>

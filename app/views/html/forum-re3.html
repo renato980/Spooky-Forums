@@ -1,73 +1,13 @@
+{%- import 'app/controllers/variables.njk' as vars -%}
+{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
+{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Resident Evil 3</title>
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/forum.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {{ nonlayouts.head(vars.title16)}}
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="games.html">Games</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="right"><a href="register.html">Sign Up</a></li>
-        <li class="right"><a href="login.html">Log In</a></li>
-    </ul>
-    <main>
-        <h1 class="game_head">Resident Evil 3</h1>
-				<section class="game_desc">
-						<section class="game_img">
-								<figure>
-										<img alt="alien" src="../img/re_3.jpg">
-								</figure>
-								<figure>
-										<img alt="alien" src="../img/re3.jpg">
-								</figure>
-								<figure>
-										<img alt="alien" src="../img/re3_.jpg">
-								</figure>
-					 </section>
-					 <div class="about">
-					 			<h2>Game Overview</h2>
-								<p>Review Score:
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-								</p>
-			 					<p>The third entry in the Resident Evil series. The T-virus has spread
-					 			all over Racoon City and Jill Valentine is caught in the middle of it.
-					 			However, the true threat isn't the zombies and monsters. Something seems
-					 			to be after her and won't let her escape the city so easily.</p>
-					 </div>
-				</section>
-				<div class="messageboard">
-						<h2>Reviews</h2>
-            <div class="review_block">
-                <h3>Review 1</h3>
-								<p>This game was so amazing for it's time. I'm glad they brought back Jill from the first game and
-								nemesis is such a great enemy design that makes this game so much fun and so scary to play.</p>
-            </div>
-            <div class="review_block">
-								<h3>Review 2</h3>
-								<p>This game was so amazing for it's time. I'm glad they brought back Jill from the first game and
-								nemesis is such a great enemy design that makes this game so much fun and so scary to play.</p>
-            </div>
-						<div class="review_block">
-								<h3>Review 3</h3>
-								<p>This game was so amazing for it's time. I'm glad they brought back Jill from the first game and
-								nemesis is such a great enemy design that makes this game so much fun and so scary to play.</p>
-            </div>
-        </div>
-				<section class="write_review">
-						<form action="/action_page.php">
-								<textarea id="review" name="review" placeholder="Write your review here.."></textarea>
-								<input type="submit" value="Submit" id="submit">
-						</form>
-        </section>
-    </main>
+    {{ layouts.nav('none',links) }}
+    {%- include 'app/controllers/blocks/re3.njk' -%}
 </body>
 </html>

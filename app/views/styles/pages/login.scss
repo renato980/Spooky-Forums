@@ -2,26 +2,24 @@ body {
   font-family: sans-serif;
 }
 
-main {
-	h1 {
-		text-align: center;
-		margin-bottom: 0px;
-	}
-	p {
-		margin-top: 0px;
-		padding-top: 10px;
-		text-align: center;
-	}
+.login-h1 {
+	text-align: center;
+	margin-bottom: 0px;
+}
+.login-p {
+	margin-top: 0px;
+	padding-top: 10px;
+	text-align: center;
 }
 
-.container {
+.login-container {
   font-weight: bold;
   padding: 30px;
   width: 50%;
   margin: 0 auto;
 }
 
-form input, textarea {
+.login-form{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;

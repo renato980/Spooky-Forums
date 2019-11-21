@@ -1,18 +1,18 @@
-main h1 {
+.contact-h1 {
   text-align: center;
 	margin-bottom: 0;
 }
 
 /* Contact Form*/
 
-.container {
+.contact-container {
   font-weight: bold;
   padding: 30px;
   width: 50%;
   margin: 0 auto;
 }
 
-form input, select, textarea {
+.contact-form{
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 4px;

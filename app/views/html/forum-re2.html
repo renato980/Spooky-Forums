@@ -1,83 +1,13 @@
+{%- import 'app/controllers/variables.njk' as vars -%}
+{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
+{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Resident Evil 2</title>
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/forum.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {{ nonlayouts.head(vars.title15)}}
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="games.html">Games</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="right"><a href="register.html">Sign Up</a></li>
-        <li class="right"><a href="login.html">Log In</a></li>
-    </ul>
-    <main>
-        <h1 class="game_head">Resident Evil 2</h1>
-				<section class="game_desc">
-						<section class="game_img">
-								<figure>
-										<img alt="alien" src="../img/re2_.jpg">
-								</figure>
-								<figure>
-										<img alt="alien" src="../img/re2.jpg">
-								</figure>
-								<figure>
-										<img alt="alien" src="../img/re_2.jpg">
-								</figure>
-					 </section>
-					 <div class="about">
-					 	 		<h2>Game Overview</h2>
-								<p>Review Score:
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star-half-full checked"></span>
-								</p>
-								<p>The genre-defining masterpiece Resident Evil 2 returns, completely rebuilt from the ground
-								up for a deeper narrative experience. Using Capcom's proprietary RE Engine, Resident Evil 2
-								offers a fresh take on the classic survival horror saga with breathtakingly realistic visuals,
-								heart-poundingly immersive audio, a new over-the-shoulder camera, and modernized controls on
-								top of gameplay modes from the original game. The nightmares return reimagined for the
-								PlayStation®4, Xbox One and Windows PC on January 25, 2019.<br>
-								<br>In Resident Evil 2, the classic action, tense exploration, and puzzle solving gameplay
-								that defined the Resident Evil series returns. Players join rookie police officer Leon
-								Kennedy and college student Claire Redfield, who are thrust together by a disastrous outbreak
-								in Raccoon City that transformed its population into deadly zombies. Both Leon and Claire
-								have their own separate playable campaigns, allowing players to see the story from both
-								characters' perspectives. The fate of these two fan favorite characters is in players hands
-								as they work together to survive and get to the bottom of what is behind the terrifying
-							 	attack on the city. Will they make it out alive?</p>
-					 </div>
-				</section>
-				<div class="messageboard">
-						<h2>Reviews</h2>
-            <div class="review_block">
-                <h3>Review 1</h3>
-								<p>This remake of Resident Evil 2 is so good. I love how they made the zombies burst through doors and over the shoulder
-								aiming doesn't make the game super easy like everyone expected it to be. Definitely a game I will playthrough multiple times.</p>
-            </div>
-            <div class="review_block">
-								<h3>Review 2</h3>
-								<p>This remake of Resident Evil 2 is so good. I love how they made the zombies burst through doors and over the shoulder
-								aiming doesn't make the game super easy like everyone expected it to be. Definitely a game I will playthrough multiple times.</p>
-            </div>
-						<div class="review_block">
-								<h3>Review 3</h3>
-								<p>This remake of Resident Evil 2 is so good. I love how they made the zombies burst through doors and over the shoulder
-								aiming doesn't make the game super easy like everyone expected it to be. Definitely a game I will playthrough multiple times.</p>
-            </div>
-        </div>
-				<section class="write_review">
-						<form action="/action_page.php">
-								<textarea id="review" name="review" placeholder="Write your review here.."></textarea>
-								<input type="submit" value="Submit" id="submit">
-						</form>
-        </section>
-    </main>
+    {{ layouts.nav('none',links) }}
+    {%- include 'app/controllers/blocks/re2.njk' -%}
 </body>
 </html>

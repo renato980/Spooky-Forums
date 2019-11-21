@@ -1,14 +1,8 @@
-// This file contains all styles related to the header of the site/application.
-
 body {
   font-family: sans-serif;
   background-color: #090b11;
   color: white;
   margin: 0;
-}
-
-main {
-  padding: 0 25px;
 }
 
 .nav {
@@ -17,20 +11,22 @@ main {
   padding: 0;
   overflow: hidden;
   background-color: #161a1f;
-	li {
-		float: left;
-	}
-	a {
-		display: block;
-		color: white;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-	}
+}
+
+.nav li {
+  float: left;
 }
 
 .nav li.right {
   float: right;
+}
+
+.nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .nav a:hover:not(.active) {
@@ -39,6 +35,10 @@ main {
 
 .nav a.active {
   background-color: #ff8533;
+}
+
+main {
+  padding: 0 25px;
 }
 
 @media screen and (max-width: 600px) {

@@ -1,96 +1,13 @@
+{%- import 'app/controllers/variables.njk' as vars -%}
+{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
+{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Luigi's Mansion 3</title>
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/forum.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {{ nonlayouts.head(vars.title12)}}
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="games.html">Games</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="right"><a href="register.html">Sign Up</a></li>
-        <li class="right"><a href="login.html">Log In</a></li>
-    </ul>
-    <main>
-        <h1 class="game_head">Luigi's Mansion 3</h1>
-				<section class="game_desc">
-						<section class="game_img">
-								<figure>
-										<img alt="lm" src="../img/lm3.jpg">
-								</figure>
-								<figure>
-										<img alt="lm" src="../img/lm.jpg">
-								</figure>
-								<figure>
-										<img alt="lm" src="../img/lm-ghost.jpg">
-								</figure>
-					 </section>
-					 <div class="about">
-					 			<h2>Luigi has to conquer his fears and explore the towering Last Resort hotel when Mario
-								and his friends go missing!</h2>
-								<p>Review Score:
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-								</p>
-								<p>Slam, blow away, and vacuum up ghosts with the all-new Poltergust G-00, and join
-								forces with Gooigi to overcome the puzzling contraptions and mischievous boss on each
-								themed floor. And that’s just the Last Resort. Enter the ScareScraper for 8-player
-								local wireless or online co-op gameplay.<br>
-
-								<br>See if you can defeat all the ghosts, rescue all the toads, or clear other objectives
-								before time runs out…in the ScareScraper! And for more mini-game madness, compete on
-								teams at the ScreamPark! Whether you play with friends or wander the hotel alone,
-								you’ll be sucked in by the atmospheric music and ghoulish décor of every cobwebby
-								corner you explore. Why not take in the cinematic sights and sounds with a friend?
-								In the main adventure, you and a friend can play together as Luigi and Gooigi in
-								two-player co-op! Gooigi can walk on spikes, slip through tight spaces, and help
-								Luigi overcome obstacles he can’t tackle alone. Never hurts to have a friend in this
-								hotel; it may not be very spooky, but Luigi begs to differ!</p>
-					 </div>
-				</section>
-				<div class="messageboard">
-						<h2>Reviews</h2>
-            <div class="review_block">
-                <h3>Review 1</h3>
-								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
-								bloodier than ever. Featuring a stunning visual presentation, updated controls and
-								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
-								Department to life (and death) like never before. Offering a bone-chilling blend of
-								cryptic puzzles, resource conservation and encounters with infected freaks, this one
-								is best enjoyed with the lights down and the volume up.</p>
-            </div>
-            <div class="review_block">
-								<h3>Review 2</h3>
-								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
-								bloodier than ever. Featuring a stunning visual presentation, updated controls and
-								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
-								Department to life (and death) like never before. Offering a bone-chilling blend of
-								cryptic puzzles, resource conservation and encounters with infected freaks, this one
-								is best enjoyed with the lights down and the volume up.</p>
-            </div>
-						<div class="review_block">
-								<h3>Review 3</h3>
-								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
-								bloodier than ever. Featuring a stunning visual presentation, updated controls and
-								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
-								Department to life (and death) like never before. Offering a bone-chilling blend of
-								cryptic puzzles, resource conservation and encounters with infected freaks, this one
-								is best enjoyed with the lights down and the volume up.</p>
-            </div>
-        </div>
-				<section class="write_review">
-						<form action="/action_page.php">
-								<textarea id="review" name="review" placeholder="Write your review here.."></textarea>
-								<input type="submit" value="Submit" id="submit">
-						</form>
-        </section>
-    </main>
+    {{ layouts.nav('none',links) }}
+    {%- include 'app/controllers/blocks/lm.njk' -%}
 </body>
 </html>

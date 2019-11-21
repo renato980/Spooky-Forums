@@ -1,87 +1,16 @@
+{%- import 'app/controllers/variables.njk' as vars -%}
+{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
+{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Spooky Test</title>
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/home.css">
-		<link rel="stylesheet" type="text/css" href="css/footer.css">
+  {{ nonlayouts.head(vars.title1)}}
 </head>
 <body>
-    <ul class="nav">
-        <li><a class="active" href="index.html">Home</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="right"><a href="register.html">Sign Up</a></li>
-        <li class="right"><a href="login.html">Log In</a></li>
-    </ul>
-    <main>
-        <h1>Welcome to <span id="orange">Spooky Forums</span>!</h1>
-        <img id="banner" alt="banner" src="../img/spooky.jpg">
-        <div id="opening">
-            <h2>Do you like spooky video games?</h2>
-            <p>Spooky forums is a video game forum for all things spooky. Visit our games page
-						to see our spooky game collection. Read the reviews for a game you were thinking
-						about checking out or write a review for your favorite or least favorite games.
-						Don't see your favorite spooky game? Recommend a game by going to our contact page!</p>
-						<form action="register.html" method="get">
-  							<button id="button">Sign Up</button>
-						</form>
-        </div>
-        <h2 id="featured">Featured Games</h2>
-				<section>
-						<figure>
-								<a href="forum-hk.html">
-										<h3>Hollow Knight</h3>
-										<img alt="hk" src="../img/hk.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-re2.html">
-										<h3>Resident Evil 2</h3>
-										<img alt="re2" src="../img/re2.jpg">
-								</a>
-						</figure>
-						<figure>
-								<a href="forum-pm.html">
-										<h3>Pocket Mirror</h3>
-										<img alt="pm" src="../img/pm.jpg">
-								</a>
-						</figure>
-				</section>
-        <h2 id="latest">Latest News</h2>
-        <div class="row">
-            <div class="news">
-                <h3>Hollow Knight: Silksong Revealed</h3>
-								<p>Hollow Knight: Silksong is the epic sequel to Hollow Knight, the award winning
-								action-adventure of bugs and heroes. As the lethal hunter Hornet, journey to
-								all-new lands, discover new powers, battle vast hordes of bugs and beasts and
-								uncover ancient secrets tied to your nature and your past.</p>
-            </div>
-            <div class="news">
-								<h3>Little Nightmares</h3>
-								<p>With Little Nightmares 2 recently announced at GamesCom 2019, there's no better time
-								to play the original before its sequel releases in 2020. Little Nightmares is a Tim
-								Burton-esque puzzle-platformer first released in 2017 that follows a small, hungry child
-								in a yellow raincoat known only as Six. The child is trapped in a horrifying, mostly
-								underwater island location called the Maw, which is home to numerous strange and
-								deplorable creatures. From a long-armed blind janitor to a chilling, shadowy Lady,
-								Six must avoid capture while navigating her way out of the Maw.</p>
-            </div>
-						<div class="news">
-								<h3>Resident Evil 2 Remake</h3>
-								<p>Rebuilt from the ground up, Capcom's survival horror classic returns better and
-								bloodier than ever. Featuring a stunning visual presentation, updated controls and
-								immersive audio design, Resident Evil 2 brings the zombie-infested Raccoon City Police
-								Department to life (and death) like never before. Offering a bone-chilling blend of
-								cryptic puzzles, resource conservation and encounters with infected freaks, this one
-								is best enjoyed with the lights down and the volume up.</p>
-            </div>
-        </div>
-    </main>
-    <br>
-    <footer>
-        <div>Copyright @ 2019 Spooky Forums - All Rights Reserved</div>
-    </footer>
+  {{ layouts.nav('index', links) }}
+
+	{%- include 'app/controllers/blocks/index.njk' -%}
+
+	{%- include 'app/controllers/blocks/footer.njk' -%}
 </body>
 </html>

@@ -1,30 +1,14 @@
+{%- import 'app/controllers/variables.njk' as vars -%}
+{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
+{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-		<link rel="stylesheet" type="text/css" href="css/login.css">
+  {{ nonlayouts.head(vars.title5)}}
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="right"><a href="register.html">Sign Up</a></li>
-        <li class="right"><a class="active" href="login.html">Log In</a></li>
-    </ul>
-    <main>
-				<h1>Log In</h1>
-				<div class="container">
-						<form action="/action_page.php">
-								<label for="username">Username</label>
-								<input type="text" id="username" name="username" placeholder="Username">
-								<label for="password">Password</label>
-								<input type="password" id="password" name="password" placeholder="Password">
-								<input type="submit" value="Log In" id="submit">
-						</form>
-				</div>
-    </main>
+	{{ layouts.nav('login', links) }}
+
+	{%- include 'app/controllers/blocks/login.njk' -%}
 </body>
 </html>
