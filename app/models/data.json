@@ -1,8 +1,7 @@
 "data" {
-	"name": "First Last",
-  "password": "Password",
+	"first-name": "first",
+	"last-name": "last",
   "email": "name@gmail.com",
-  "last-login": "May 2, 2012",
-  "time": "10:45AM",
-  "score": "4.5"
+	"username": "username",
+	"password": "password"
 }
