@@ -20,7 +20,7 @@ const colors = {
 
 let db;
 
-nunjucks.configure(`views`, {
+nunjucks.configure(`app/controllers/blocks`, {
     express: app,
     autoescape: true
 });
