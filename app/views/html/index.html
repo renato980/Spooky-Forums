@@ -1,6 +1,6 @@
-{%- import 'app/controllers/variables.njk' as vars -%}
-{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
-{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
+{%- import 'variables.njk' as vars -%}
+{%- import 'macros/layouts.njk' as layouts -%}
+{%- import 'macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +9,8 @@
 <body>
   {{ layouts.nav('index', links) }}
 
-	{%- include 'app/controllers/blocks/index.njk' -%}
+	{%- include 'blocks/index.njk' -%}
 
-	{%- include 'app/controllers/blocks/footer.njk' -%}
+	{%- include 'blocks/footer.njk' -%}
 </body>
 </html>
