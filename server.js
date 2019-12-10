@@ -20,7 +20,7 @@ const colors = {
 
 let db;
 
-nunjucks.configure(`app/views/html`, {
+nunjucks.configure(`app/controllers/blocks`, {
     express: app,
     autoescape: true
 });
@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Express middleware to server HTML, CSS, and JS files.
-app.use(express.static(`app/views`));
+app.use(express.static(`public`));
 
 /**
  * Note:
@@ -71,7 +71,7 @@ app.use(express.static(`app/views`));
 app.get(`/`, (req, res) => {
     console.log(`User requested root of web site.`);
     console.log(`Responding to request with file`,
-        colors.green, `index.html`, colors.reset, `via GET.`);
+        colors.green, `index.njk`, colors.reset, `via GET.`);
 
-    res.render(`index.html`);
+    res.render(`index.njk`);
 });
