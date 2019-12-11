@@ -122,6 +122,11 @@ let compressImages = () => {
         .pipe(dest(`prod/img`));
 };
 
+let getServer = () => {
+    return src(`server.js`)
+		.pipe(dest('.tmp/'));
+};
+
 let serve = () => {
     browserSync({
         server: {

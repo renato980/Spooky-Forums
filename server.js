@@ -1,6 +1,8 @@
 const express = require(`express`);
 const app = express();
 const b = require("bcrypt");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const nunjucks = require(`nunjucks`);
@@ -148,14 +150,14 @@ app.post(`/create-a-db-record`, (req, res) => {
 		let userEmail = req.body.email;
 		let userUsername = req.body.username;
 		let userPassword = req.body.password;
-		//hash password
+		// hash password
 		db.collection(dbCollection).insertOne(req.body, (err) => {
 			if(err){
 				return console.log(err);
 			}
-			else if(result.length === 0){
+			else {
 				b.hash(req.body.password.toString(), 10, function(err, hash) {
-					if(err){
+					if(err) {
 						return console.log(err);
 					}
 					// insert user into DB
@@ -170,9 +172,6 @@ app.post(`/create-a-db-record`, (req, res) => {
 						}
 					});
 				});
-			}
-			else {
-				return res.redirect("/register");
 			}
 		});
 });
