@@ -139,7 +139,7 @@ let serve = () => {
         `app/controllers/**/**`,
         `app/models/*.json`
     ],
-    compileHTMLDev).on(`change`, reload);
+    compileHTML).on(`change`, reload);
 };
 
 exports.safari = series(safari, serve);
