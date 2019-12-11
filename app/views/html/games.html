@@ -1,14 +1,13 @@
-{%- import 'app/controllers/variables.njk' as vars -%}
-{%- import 'app/controllers/macros/layouts.njk' as layouts -%}
-{%- import 'app/controllers/macros/nonlayouts.njk' as nonlayouts -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	{%- import 'variables.njk' as vars -%}
+	{%- import 'macros/layouts.njk' as layouts -%}
+	{%- import 'macros/nonlayouts.njk' as nonlayouts -%}
   {{ nonlayouts.head(vars.title2)}}
 </head>
 <body>
   {{ layouts.nav('games', links) }}
-
-	{%- include 'app/controllers/blocks/games.njk' -%}
+	{%- include 'blocks/games.njk' -%}
 </body>
 </html>

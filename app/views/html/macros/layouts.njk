@@ -1,0 +1,56 @@
+{% macro nav(choice, linkArray) %}
+	{%- if choice == "none" %}
+			<ul class="nav">
+        	<li><a href="index.html">Home</a></li>
+        	<li><a href="games.html">Games</a></li>
+        	<li><a href="contact.html">Contact</a></li>
+        	<li class="right"><a href="register.html">Sign Up</a></li>
+        	<li class="right"><a href="login.html">Log In</a></li>
+    	</ul>
+	{%- endif %}
+	{%- if choice == "index" %}
+			<ul class="nav">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="right"><a href="register.html">Sign Up</a></li>
+          <li class="right"><a href="login.html">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "games" %}
+			<ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="games.html">Games</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="right"><a href="register.html">Sign Up</a></li>
+          <li class="right"><a href="login.html">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "contact" %}
+			<ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+          <li class="right"><a href="register.html">Sign Up</a></li>
+          <li class="right"><a href="login.html">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "login" %}
+			<ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="right"><a href="register.html">Sign Up</a></li>
+          <li class="right"><a class="active" href="login.html">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "register" %}
+			<ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="right"><a class="active" href="register.html">Sign Up</a></li>
+          <li class="right"><a href="login.html">Log In</a></li>
+      </ul>
+	{%- endif %}
+{%- endmacro -%}
