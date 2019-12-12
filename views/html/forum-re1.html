@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		{%- import 'variables.njk' as vars -%}
+		{%- import 'macros/layouts.njk' as layouts -%}
+		{%- import 'macros/nonlayouts.njk' as nonlayouts -%}
+		{{ nonlayouts.head(vars.title14)}}
+</head>
+<body>
+    {{ layouts.nav('none',links) }}
+    {%- include 'blocks/re1.njk' -%}
+</body>
+</html>

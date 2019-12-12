@@ -1,0 +1,56 @@
+{% macro nav(choice, linkArray) %}
+	{%- if choice == "none" %}
+			<ul class="nav">
+          <li><a href="index">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li class="right"><a href="register">Sign Up</a></li>
+          <li class="right"><a href="login">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "index" %}
+			<ul class="nav">
+          <li><a class="active" href="index">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li class="right"><a href="register">Sign Up</a></li>
+          <li class="right"><a href="login">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "games" %}
+			<ul class="nav">
+          <li><a href="index">Home</a></li>
+          <li><a class="active" href="games">Games</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li class="right"><a href="register">Sign Up</a></li>
+          <li class="right"><a href="login">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "contact" %}
+			<ul class="nav">
+          <li><a href="index">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a class="active" href="contact">Contact</a></li>
+          <li class="right"><a href="register">Sign Up</a></li>
+          <li class="right"><a href="login">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "login" %}
+			<ul class="nav">
+          <li><a href="index">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li class="right"><a href="register">Sign Up</a></li>
+          <li class="right"><a class="active" href="login">Log In</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "register" %}
+			<ul class="nav">
+          <li><a href="index">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li class="right"><a class="active" href="register">Sign Up</a></li>
+          <li class="right"><a href="login">Log In</a></li>
+      </ul>
+	{%- endif %}
+{%- endmacro -%}

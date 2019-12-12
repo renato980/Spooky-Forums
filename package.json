@@ -4,7 +4,9 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon -e js,njk,html,css server.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +20,11 @@
     "gulp": "^4.0.2",
     "gulp-html": "^0.5.0",
     "gulp-htmlmin": "^5.0.1",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.1",
     "sass-lint": "^1.13.1"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
@@ -33,6 +36,8 @@
     "gulp-imagemin": "^6.2.0",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-sass": "^4.0.2",
-    "mongodb": "^3.4.0"
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.5",
+    "nunjucks": "^3.2.0"
   }
 }

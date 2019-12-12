@@ -1,8 +1,6 @@
 const express = require(`express`);
 const app = express();
-const b = require("bcrypt");
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const b = require("bcrypt-nodejs");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const nunjucks = require(`nunjucks`);
@@ -14,7 +12,7 @@ const dbPort = `27017`;
 const dbURL = `mongodb://${HOST}`;
 const dbName = `project`;
 const dbCollection = `users`;
-const PORT = 3000;
+const PORT = 8080;
 const port = (process.env.PORT || PORT);
 const colors = {
     reset: `\x1b[0m`,
@@ -25,7 +23,7 @@ const colors = {
 
 let db;
 
-nunjucks.configure(`app/controllers/blocks`, {
+nunjucks.configure(`views/html`, {
     express: app,
     autoescape: true
 });
@@ -52,7 +50,7 @@ app.listen(port, HOST, () => {
 });
 
 // Express’ way of setting a variable. In this case, “view engine” to “njk”.
-app.set(`view engine`, `njk`);
+app.set(`view engine`, `html`);
 
 // Express middleware to parse incoming, form-based request data before processing
 // form data.
@@ -62,30 +60,27 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Express middleware to server HTML, CSS, and JS files.
-app.use(express.static(`app/views`));
+app.use(express.static(`views`));
 
-/**
- * Note:
- *    — All req(uests) are from the client/browser.
- *    — All res(ponses) are to the client/browser.
- */
-
-/**
- * This router handles all GET requests to the root of the web site.
- */
+// This router handles all GET requests to the root of the web site.
 app.get(`/`, (req, res) => {
     console.log(`User requested root of web site.`);
     console.log(`Responding to request with file`,
-        colors.green, `index.njk`, colors.reset, `via GET.`);
+        colors.green, `index.html`, colors.reset, `via GET.`);
 
-    res.render(`index.njk`);
+    res.render(`index.html`);
+});
+
+// get and render all the pages
+app.get(`/*`, (req, res) => {
+		res.render(req.params[0] + ".html");
 });
 
 // login
-app.get(`/read-a-db-record`, (req, res) => {
+app.post(`/login`, (req, res) => {
 		// check to see if username matches existing user
 		let userUsername = req.body.username;
-    db.collection(dbCollection).find().toArray((err, arrayObject) => {
+    db.collection(dbCollection).findOne({username : userUsername}, function(err, user) {
         if (err) {
             return console.log(err);
         } else {
@@ -140,11 +135,11 @@ app.get(`/read-a-db-record`, (req, res) => {
 	});
 
 // register a user
-app.get(`/create-a-db-record`, (req, res) => {
+app.get(`/register`, (req, res) => {
     res.render(`register.njk`);
 });
 
-app.post(`/create-a-db-record`, (req, res) => {
+app.post(`/create-user`, (req, res) => {
 		let userFirst = req.body.firstname;
 		let userLast = req.body.lastname;
 		let userEmail = req.body.email;
@@ -152,11 +147,11 @@ app.post(`/create-a-db-record`, (req, res) => {
 		let userPassword = req.body.password;
 		// hash password
 		db.collection(dbCollection).insertOne(req.body, (err) => {
-			if(err){
+			if(err) {
 				return console.log(err);
 			}
 			else {
-				b.hash(req.body.password.toString(), 10, function(err, hash) {
+				b.hash(userPassword.toString(), 10, function(err, hash) {
 					if(err) {
 						return console.log(err);
 					}

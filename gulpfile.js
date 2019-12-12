@@ -122,11 +122,6 @@ let compressImages = () => {
         .pipe(dest(`prod/img`));
 };
 
-let getServer = () => {
-    return src(`server.js`)
-		.pipe(dest('.tmp/'));
-};
-
 let serve = () => {
     browserSync({
         server: {
@@ -144,7 +139,7 @@ let serve = () => {
         `app/controllers/**/**`,
         `app/models/*.json`
     ],
-    compileHTML).on(`change`, reload);
+    compileHTMLDev).on(`change`, reload);
 };
 
 exports.safari = series(safari, serve);
