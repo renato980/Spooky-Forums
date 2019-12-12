@@ -1,6 +1,6 @@
 const express = require(`express`);
 const app = express();
-const b = require("bcrypt-nodejs");
+const bcrypt = require("bcrypt-nodejs");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const nunjucks = require(`nunjucks`);
@@ -76,15 +76,17 @@ app.get(`/*`, (req, res) => {
 		res.render(req.params[0] + ".html");
 });
 
-// login
+// login **DOES NOT WORK
 app.post(`/get-user-from-db`, (req, res) => {
 		// check to see if username matches existing user
 		let userUsername = req.body.username;
-    db.collection(dbCollection).findOne({username : userUsername}, function(err, user) {
+    db.collection(dbCollection).findOne({username: req.body.username}, function(err, user) {
         if (err) {
             return console.log(err);
         } else {
 						// if user does not exist in database
+						console.log(`User does not exist.\n`);
+						console.log(`Username entered is ` + req.body.username + '\n');
 						return res.redirect("/login");
 				}
 				// extract user info
@@ -95,7 +97,7 @@ app.post(`/get-user-from-db`, (req, res) => {
 						userPassword = user.password;
 				}
 				// check to see if password matches existing password
-				b.compare(req.body.password, userPassword, function(err, match) {
+				bcrypt.compare(req.body.password, userPassword, function(err, match) {
 						if(err) {
 								return console.log(err);
 						}
@@ -128,6 +130,7 @@ app.post(`/get-user-from-db`, (req, res) => {
 								}
 								// if password is incorrect, reload page
 								else {
+										console.log(`Password is incorrect.\n`);
 										return res.redirect("/login");
 								}
     			});
@@ -145,28 +148,32 @@ app.post(`/create-user-in-db`, (req, res) => {
 		let userEmail = req.body.email;
 		let userUsername = req.body.username;
 		let userPassword = req.body.password;
-		// hash password
+
 		db.collection(dbCollection).insertOne(req.body, (err) => {
-			if(err) {
-				return console.log(err);
-			}
-			else {
-				b.hash(userPassword.toString(), 10, function(err, hash) {
-					if(err) {
+				if(err) {
 						return console.log(err);
-					}
-					// insert user into DB
-					db.collection(dbCollection).insertOne(req.body, (err) => {
+				}
+				else {
+						console.log(`Inserted one record into Mongo via an HTML form using POST.\n`);
+						res.redirect("/login");
+				}
+		});
+
+				/*else {
+					bcrypt.hash(userPassword.toString(), bcrypt.genSalt(10), null,function(err, hash) {
 						if(err) {
 							return console.log(err);
 						}
-						else {
-							console.log(
-	                `Inserted one record into Mongo via an HTML form using POST.\n`);
-							return res.redirect("/login");
-						}
+						// insert user into DB
+						db.collection(dbCollection).insertOne(req.body, (err) => {
+							if(err) {
+								return console.log(err);
+							}
+							else {
+								console.log(`Inserted one record into Mongo via an HTML form using POST.\n`);
+								res.redirect("/login");
+							}
+						});
 					});
-				});
-			}
-		});
+				}*/
 });
