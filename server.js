@@ -10,7 +10,7 @@ const mongoClient = mongoDB.MongoClient;
 const HOST = `localhost`;
 const dbPort = `27017`;
 const dbURL = `mongodb://${HOST}`;
-const dbName = `project`;
+const dbName = `spooky`;
 const dbCollection = `users`;
 const PORT = 8080;
 const port = (process.env.PORT || PORT);
@@ -77,7 +77,7 @@ app.get(`/*`, (req, res) => {
 });
 
 // login
-app.post(`/login`, (req, res) => {
+app.post(`/get-user-from-db`, (req, res) => {
 		// check to see if username matches existing user
 		let userUsername = req.body.username;
     db.collection(dbCollection).findOne({username : userUsername}, function(err, user) {
@@ -139,7 +139,7 @@ app.get(`/register`, (req, res) => {
     res.render(`register.njk`);
 });
 
-app.post(`/create-user`, (req, res) => {
+app.post(`/create-user-in-db`, (req, res) => {
 		let userFirst = req.body.firstname;
 		let userLast = req.body.lastname;
 		let userEmail = req.body.email;
