@@ -143,37 +143,22 @@ app.get(`/register`, (req, res) => {
 });
 
 app.post(`/create-user-in-db`, (req, res) => {
-		let userFirst = req.body.firstname;
-		let userLast = req.body.lastname;
-		let userEmail = req.body.email;
-		let userUsername = req.body.username;
-		let userPassword = req.body.password;
-
-		db.collection(dbCollection).insertOne(req.body, (err) => {
-				if(err) {
-						return console.log(err);
-				}
-				else {
-						console.log(`Inserted one record into Mongo via an HTML form using POST.\n`);
-						res.redirect("/login");
-				}
-		});
-
-				/*else {
-					bcrypt.hash(userPassword.toString(), bcrypt.genSalt(10), null,function(err, hash) {
+		// hash and salt password before inserting into db
+		let fname = req.body.firstname;
+		let lname = req.body.lastname;
+		let email = req.body.email;
+		let username = req.body.username;
+		let password = req.body.password;
+		bcrypt.hash(password, 10, null,function(err, hash) {
+				db.collection(dbCollection).insertOne({fname, lname, email, username, password: hash}, (err) => {
 						if(err) {
 							return console.log(err);
 						}
-						// insert user into DB
-						db.collection(dbCollection).insertOne(req.body, (err) => {
-							if(err) {
-								return console.log(err);
-							}
-							else {
-								console.log(`Inserted one record into Mongo via an HTML form using POST.\n`);
-								res.redirect("/login");
-							}
-						});
-					});
-				}*/
+						else {
+							console.log(`Inserted one record into Mongo via an HTML form using POST.\n`);
+							console.log('HASH: ', hash);
+							res.redirect("/login");
+						}
+				});
+		});
 });
