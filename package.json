@@ -24,7 +24,7 @@
     "sass-lint": "^1.13.1"
   },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
@@ -38,6 +38,8 @@
     "gulp-sass": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.3.5",
+    "node-gyp": "^6.0.1",
+    "node-pre-gyp": "^0.14.0",
     "nunjucks": "^3.2.0"
   }
 }

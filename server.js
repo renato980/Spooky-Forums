@@ -1,6 +1,6 @@
 const express = require(`express`);
 const app = express();
-const bcrypt = require("bcrypt-nodejs");
+const bcrypt = require("bcrypt");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const nunjucks = require(`nunjucks`);
@@ -149,7 +149,7 @@ app.post(`/create-user-in-db`, (req, res) => {
 		let email = req.body.email;
 		let username = req.body.username;
 		let password = req.body.password;
-		bcrypt.hash(password, 10, null,function(err, hash) {
+		bcrypt.hash(password, 10,function(err, hash) {
 				db.collection(dbCollection).insertOne({fname, lname, email, username, password: hash}, (err) => {
 						if(err) {
 							return console.log(err);
