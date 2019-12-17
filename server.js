@@ -104,6 +104,22 @@ app.post(`/get-user-from-db`, (req, res) => {
     });
 });
 
+
+
+
+// delete user(s) from database
+// app.post('/delete-user-from-db', (req, res) => {
+//  	let username = req.body.username;
+//    db.collection(dbCollection).deleteOne({username: username}, function(err, result)
+//  {
+
+//  }
+
+//      }
+//});
+
+
+
 // register a user
 app.get(`/register`, (req, res) => {
     res.render(`register.njk`);
