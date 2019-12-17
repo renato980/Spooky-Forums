@@ -546,6 +546,45 @@ body {
 	opacity: 0.9;
 }
 
+.rating label:before {
+	font-size: 1.5em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.write_review h2{
+	color: #ff8533;
+	text-align: center;
+}
+
+.rating .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating {
+  border: none;
+  float: left;
+	display: flex;
+  flex-direction: row-reverse;
+}
+
+.rating input {
+	display: none;
+	flex: 0 0 auto;
+ }
+
+
+ .rating > input:checked ~ label, /* show gold star when clicked */
+ .rating:not(:checked) > label:hover, /* hover current star */
+ .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+ .rating > input:checked + label:hover, /* hover current star when changing rating */
+ .rating > input:checked ~ label:hover,
+ .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+ .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
 /* Make columns responsive */
 @media screen and (max-width: 750px) {
 	.forum-figure {
