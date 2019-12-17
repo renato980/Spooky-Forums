@@ -10,6 +10,7 @@ const dbPort = `27017`;
 const dbURL = `mongodb://${HOST}`;
 const dbName = `spooky`;
 const dbCollection = `users`;
+const dbCollection2= 'reviews';
 const PORT = 8080;
 const port = (process.env.PORT || PORT);
 const colors = {
@@ -129,3 +130,34 @@ app.post(`/create-user-in-db`, (req, res) => {
 				});
 		});
 });
+
+//submitting Reviews for each game
+app.post(`/alien-review-in-db`, (req, res) => {
+		let reviewMessage = req.body.review;
+		let reviewScore = req.body.rating;
+		let game = "Alien: Isolation";
+		db.collection(dbCollection2).insertOne({Title: game, Score: reviewScore, Message: reviewMessage}, (err) => {
+				if(err) {
+					return console.log(err);
+				}
+				else {
+					console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
+					res.redirect("back");
+				}
+		});
+	});
+
+//original review submission
+/*	app.post(`/alien-review-in-db`, (req, res) => {
+			let reviewMessage = req.body.review;
+			let game = "Alien: Isolation";
+			db.collection(dbCollection2).insertOne({Title: game, Message: reviewMessage}, (err) => {
+					if(err) {
+						return console.log(err);
+					}
+					else {
+						console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
+						res.redirect("back");
+					}
+			});
+		}); */
