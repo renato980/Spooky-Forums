@@ -1,4 +1,4 @@
-const express = require(`express`);
+/*const express = require(`express`);
 const app = express();
 const bcrypt = require("bcrypt");
 const nunjucks = require(`nunjucks`);
@@ -39,4 +39,5 @@ app.post(`/alien-review-in-db`, (req, res) => {
 					}
 				}
 		});
-});
+})
+*/

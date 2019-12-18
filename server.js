@@ -1,8 +1,10 @@
 const express = require(`express`);
 const app = express();
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
+const session = require('express-session');
 const nunjucks = require(`nunjucks`);
 const bodyParser = require(`body-parser`);
+const cookie = require('cookie-parser');
 const mongoDB = require(`mongodb`);
 const mongoClient = mongoDB.MongoClient;
 const HOST = `localhost`;
@@ -10,7 +12,7 @@ const dbPort = `27017`;
 const dbURL = `mongodb://${HOST}`;
 const dbName = `spooky`;
 const dbCollection = `users`;
-const dbCollection2= 'reviews';
+const dbCollection2 = 'reviews';
 const PORT = 8080;
 const port = (process.env.PORT || PORT);
 const colors = {
@@ -48,18 +50,11 @@ app.listen(port, HOST, () => {
     console.log(`\tVisit http://localhost:${port}\n`);
 });
 
-// Express’ way of setting a variable. In this case, “view engine” to “njk”.
 app.set(`view engine`, `njk`);
-
-// Express middleware to parse incoming, form-based request data before processing
-// form data.
 app.use(bodyParser.urlencoded({extended: true}));
-
-// Express middleware to parse incoming request bodies before handlers.
 app.use(bodyParser.json());
-
-// Express middleware to server HTML, CSS, and JS files.
 app.use(express.static(`views`));
+app.use(cookie());
 
 // load homepage
 app.get(`/`, (req, res) => {
@@ -70,6 +65,13 @@ app.get(`/`, (req, res) => {
 app.get(`/*`, (req, res) => {
 		res.render(req.params[0] + ".html");
 });
+
+// set up sessions
+app.use(session({
+	secret: 'spook',
+	resave: false,
+	saveUninitialized: false
+}));
 
 // login
 app.post(`/get-user-from-db`, (req, res) => {
@@ -83,7 +85,7 @@ app.post(`/get-user-from-db`, (req, res) => {
         }
 				else if(!user){
 					// if user does not exist
-					console.log(`User does not exist.\n`);
+					console.log(`\nUser does not exist.\n`);
 					return res.redirect("/login");
 				}
 				else {
@@ -94,32 +96,23 @@ app.post(`/get-user-from-db`, (req, res) => {
 						}
 						if (match) {
 							// if password is correct
-							console.log(`User exists.\n`);
+							console.log(`\nUser exists.\n`);
+
+							req.session.userID = user.username;
+							req.session.userPass = user.password;
+							console.log(req.session);
+							console.log('\n');
+
 							return res.redirect("/index");
-						} else {
-							console.log(`Password is incorrect.\n`);
+						}
+						else {
+							console.log(`\nPassword is incorrect.\n`);
 							return res.redirect("/login");
 						}
 					});
 				}
     });
 });
-
-
-
-
-// delete user(s) from database
-// app.post('/delete-user-from-db', (req, res) => {
-//  	let username = req.body.username;
-//    db.collection(dbCollection).deleteOne({username: username}, function(err, result)
-//  {
-
-//  }
-
-//      }
-//});
-
-
 
 // register a user
 app.get(`/register`, (req, res) => {
@@ -140,14 +133,54 @@ app.post(`/create-user-in-db`, (req, res) => {
 							return console.log(err);
 						}
 						else {
-							console.log(`Inserted one record into Mongo via an HTML form using POST.\n`);
+							console.log(`Created user account in database.\n`);
 							res.redirect("/login");
 						}
 				});
 		});
 });
 
-//submitting Reviews for each game
+// get profile
+app.get(`/profile`, (req, res) => {
+	res.render(`profile.njk`);
+});
+
+/*app.post(`/update-user-password`, (req, res) => {
+	let current_user = req.session.userID;
+	let old_pass = req.session.userPass;
+	let new_pass = req.body.new_password;
+
+	db.collection(dbCollection).updateOne({username: current_user}, req.body).then(() => {
+		db.collection(dbCollection).find().toArray((err, arrayObject) => {
+			if (err) {
+				return console.log(err);
+			} else {
+				console.log(
+					`Updated one record into Mongo via an HTML form using POST.\n`);
+
+				res.render(`read-from-database.njk`, {mongoDBArray: arrayObject});
+			}
+		});
+	});
+});*/
+
+// delete user account
+app.post(`/delete-a-user`, (req, res) => {
+	let current_user = req.session.userID;
+
+	db.collection(dbCollection).deleteOne({username: current_user}, (err) => {
+		if(err) {
+			return console.log(err);
+		}
+		else {
+			console.log(current_user + ` deleted from database.\n`);
+			res.redirect("/index");
+		}
+	});
+});
+
+/*
+// Submit reviews for each game
 app.post(`/alien-review-in-db`, (req, res) => {
 		let reviewMessage = req.body.review;
 		let reviewScore = req.body.rating;
@@ -161,18 +194,4 @@ app.post(`/alien-review-in-db`, (req, res) => {
 						res.redirect("back");
 				}
 });
-
-//original review submission
-/*	app.post(`/alien-review-in-db`, (req, res) => {
-			let reviewMessage = req.body.review;
-			let game = "Alien: Isolation";
-			db.collection(dbCollection2).insertOne({Title: game, Message: reviewMessage}, (err) => {
-					if(err) {
-						return console.log(err);
-					}
-					else {
-						console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
-						res.redirect("back");
-					}
-			});
-		}); */
+*/
