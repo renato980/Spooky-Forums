@@ -158,10 +158,9 @@ app.post(`/alien-review-in-db`, (req, res) => {
 				}
 				else {
 					console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
-					res.redirect("back");
+						res.redirect("back");
 				}
-		});
-	});
+});
 
 //original review submission
 /*	app.post(`/alien-review-in-db`, (req, res) => {
