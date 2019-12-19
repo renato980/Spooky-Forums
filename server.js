@@ -142,41 +142,40 @@ app.post(`/create-user-in-db`, (req, res) => {
 
 // get profile
 app.get(`/profile`, (req, res) => {
-	res.render(`profile.njk`);
+		res.render(`profile.njk`);
 });
 
-/*app.post(`/update-user-password`, (req, res) => {
-	let current_user = req.session.userID;
-	let old_pass = req.session.userPass;
-	let new_pass = req.body.new_password;
+app.post(`/update-user-password`, (req, res) => {
+		let current_user = req.session.userID;
+		let old_pass = req.session.userPass;
+		let new_pass = req.body.new_password;
 
-	db.collection(dbCollection).updateOne({username: current_user}, req.body).then(() => {
-		db.collection(dbCollection).find().toArray((err, arrayObject) => {
-			if (err) {
-				return console.log(err);
-			} else {
-				console.log(
-					`Updated one record into Mongo via an HTML form using POST.\n`);
-
-				res.render(`read-from-database.njk`, {mongoDBArray: arrayObject});
-			}
+		bcrypt.hash(new_pass, 10,function(err, hash) {
+				db.collection(dbCollection).updateOne({password: old_pass}, {$set: {password: hash}}, function (err) {
+					if (err) {
+						return console.log(err);
+					}
+					else {
+						console.log(`Updated user password in database.\n`);
+						res.redirect('/login');
+					}
+				});
 		});
-	});
-});*/
+});
 
 // delete user account
 app.post(`/delete-a-user`, (req, res) => {
-	let current_user = req.session.userID;
+		let current_user = req.session.userID;
 
-	db.collection(dbCollection).deleteOne({username: current_user}, (err) => {
-		if(err) {
-			return console.log(err);
-		}
-		else {
-			console.log(current_user + ` deleted from database.\n`);
-			res.redirect("/index");
-		}
-	});
+		db.collection(dbCollection).deleteOne({username: current_user}, (err) => {
+			if(err) {
+				return console.log(err);
+			}
+			else {
+				console.log(current_user + ` deleted from database.\n`);
+				res.redirect("/index");
+			}
+		});
 });
 
 /*

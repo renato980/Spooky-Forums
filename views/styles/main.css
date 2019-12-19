@@ -1,14 +1,9 @@
-@font-face {
-	font-family: 'Modern Antiqua', cursive;
-	font-family: 'Nosifer', cursive;
-}
-
 h1, h2, h3, h4{
-	font-family: "Nosifer"
+	font-family: "Nosifer", sans-serif;
 }
 
 p, li, a, footer, input, button  {
-	font-family: 'Modern Antiqua'
+	font-family: 'Modern Antiqua', sans-serif;
 }
 
 body {
@@ -594,6 +589,11 @@ body {
 
 .delete {
 	text-align: center;
+}
+
+#confirm {
+	text-align: center;
+	color: #ff8533;
 }
 
 footer {
