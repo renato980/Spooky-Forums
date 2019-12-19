@@ -51,7 +51,7 @@
 		</div>
 		<section class="write_review">
 			<h2>Leave a Review</h2>
-				<form action="/alien-review-in-db" method="POST">
+				<form action="/put-review-in-db" method="POST">
 					<ul id= "starRating" class="rating"  name="rating">
 						<input type="radio" value="5" id = "star5" name="rating"><label title="Awesome - 5 stars" for="star5" class="full"></label></input>
 						<input type="radio" value="4.5" id = "star4half" name="rating"><label title="Awesome - 4.5 stars"for="star4half" class="half"></label></input>
@@ -64,6 +64,7 @@
 						<input type="radio" value="1" id = "star1"  name="rating"><label for="star1" class="full"></label></input>
 					</ul>
 					<textarea class="forum-form" id="review" name="review" placeholder="Write your review here.."></textarea>
+					<textarea hidden id="title" name="title">"Alien: Isolation"</textarea>
 					<input type="submit" value="Submit" id="forum-submit">
 				</form>
 		</section>
