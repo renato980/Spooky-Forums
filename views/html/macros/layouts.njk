@@ -13,7 +13,7 @@
           <li><a class="active" href="index">Home</a></li>
           <li><a href="games">Games</a></li>
           <li><a href="contact">Contact</a></li>
-          <li class="right"><a href="register">Sign Up</a></li>
+					<li class="right"><a href="register">Sign Up</a></li>
           <li class="right"><a href="login">Log In</a></li>
           <li class="right"><a href="logout">Logout</a></li>
           <li class="right"><a href="profile">Profile</a></li>
@@ -63,5 +63,14 @@
             <li class="right"><a href="logout">Log Out</a></li>
             <li class="right"><a class="active" href="profile">Profile</a></li>
         </ul>
-  	{%- endif %}
+  {%- endif %}
+  	{%- if choice == "logout" %}
+    			<ul class="nav">
+              <li><a href="index">Home</a></li>
+              <li><a href="games">Games</a></li>
+              <li><a href="contact">Contact</a></li>
+              <li class="right"><a class="active" href="logout">Log Out</a></li>
+              <li class="right"><a href="profile">Profile</a></li>
+          </ul>
+    {%- endif %}
 {%- endmacro -%}

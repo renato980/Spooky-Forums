@@ -211,6 +211,14 @@ app.post(`/send-a-message`, (req, res) => {
 		});
 });
 
+// user wants to log out
+app.get(`/logout`, (req, res) => {
+	res.render("/logout.njk");
+});
+
+app.post(`/logout`, (req, res) => {
+	res.redirect("/index");
+});
 
 
 
