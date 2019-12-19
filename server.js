@@ -133,14 +133,14 @@ app.post(`/create-user-in-db`, (req, res) => {
 							return console.log(err);
 						}
 						else {
-							console.log(`Created user account in database.\n`);
+							console.log(`\nCreated user account in database.\n`);
 							res.redirect("/login");
 						}
 				});
 		});
 });
 
-// get profile
+// user profile
 app.get(`/profile`, (req, res) => {
 		res.render(`profile.njk`);
 });
@@ -156,8 +156,8 @@ app.post(`/update-user-password`, (req, res) => {
 						return console.log(err);
 					}
 					else {
-						console.log(`Updated user password in database.\n`);
-						res.redirect('/login');
+						console.log(`\nUpdated user password in database.\n`);
+						res.redirect('/update');
 					}
 				});
 		});
@@ -165,6 +165,11 @@ app.post(`/update-user-password`, (req, res) => {
 
 // delete user account
 app.post(`/delete-a-user`, (req, res) => {
+		res.redirect("/delete");
+});
+
+// user confirms they want to delete account
+app.post(`/confirm-delete`, (req, res) => {
 		let current_user = req.session.userID;
 
 		db.collection(dbCollection).deleteOne({username: current_user}, (err) => {
@@ -172,13 +177,22 @@ app.post(`/delete-a-user`, (req, res) => {
 				return console.log(err);
 			}
 			else {
-				console.log(current_user + ` deleted from database.\n`);
+				console.log('\n' + current_user + ` deleted from database.\n`);
 				res.redirect("/index");
 			}
 		});
 });
 
-//leave a review
+// user wants to keep account
+app.post(`/keep-account`, (req, res) => {
+	res.redirect("/profile");
+});
+
+
+
+
+
+// leave a review
 app.post(`/put-review-in-db`, (req, res) => {
 		let reviewMessage = req.body.review;
 		let reviewScore = req.body.rating;
@@ -191,17 +205,18 @@ app.post(`/put-review-in-db`, (req, res) => {
 					console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
 				}
 		});
-})
+});
 
-//get reviews
+// get reviews
 app.post("/get-reviews", function (req,res) {
-	let html ="";
-	let totalReviews = 3
-	let game = "Alien: Isolation";
-	for (var i = 0; i != totalReviews; i++) {
-		db.collection(dbCollection2).find({},{projection:{_id:0, Title: 0}}).toArray(function (err, result){
-		html +='<div class="review_block"><h3>Review ' + i +'</h3><p>' + result +'</p></div>';
-		res.send(html);
-	});
-};
-})
+		let html ="";
+		let totalReviews = 3;
+		let game = "Alien: Isolation";
+
+		for (var i = 0; i !== totalReviews; i++) {
+				db.collection(dbCollection2).find({},{projection:{_id:0, Title: 0}}).toArray(function (err, result){
+						html +='<div class="review_block"><h3>Review ' + i +'</h3><p>' + result +'</p></div>';
+						res.send(html);
+				});
+		}
+});

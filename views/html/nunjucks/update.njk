@@ -1,0 +1,18 @@
+<main>
+		<h1 class="register-h1">Profile</h1>
+		<p class="register-p">Do you want to change your password?</p>
+		<div class="register-container">
+				<form action="/update-user-password" method="POST">
+						<label for="password">New Password</label>
+						<input class="register-form" type="password" id="new_password" name="new_password" placeholder="Password">
+						<input class="register-form" type="submit" value="Update" id="submit">
+				</form>
+				<p id="confirm">Your password was changed successfully!</p>
+		</div>
+		<h2 class="delete">Delete Your Account</h2>
+		<div class="delete-container">
+				<form action="/delete-a-user" method="POST">
+						<input class="register-form" type="submit" value="Delete" id="submit">
+				</form>
+		</div>
+</main>

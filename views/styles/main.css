@@ -591,6 +591,26 @@ body {
 	text-align: center;
 }
 
+.delete-container {
+	font-weight: bold;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.confirm-delete {
+	font-weight: bold;
+	padding: 20px;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#back {
+	font-weight: bold;
+	padding: 10px;
+	width: 50%;
+	margin: 0 auto;
+}
+
 #confirm {
 	text-align: center;
 	color: #ff8533;
