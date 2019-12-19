@@ -1,0 +1,20 @@
+<main>
+		<h1 class= "contact-h1">Contact Us</h1>
+		<div class="contact-container">
+				<form action="/send-a-message" method="POST">
+						<label for="fullname">Full Name</label>
+						<input class="contact-form" type="text" id="fullname" name="name" placeholder="Your Full Name">
+						<label for="email">Email</label>
+						<input class="contact-form" type="text" id="email" name="email" placeholder="Your Email Address">
+						<label for="subject">Subject</label>
+						<select  class="contact-form"id="subject" name="subject">
+								<option value="recommend">Recommend A Game</option>
+								<option value="other">Other</option>
+						</select>
+						<label for="message">Message</label>
+						<textarea class="contact-form" id="message" name="message" placeholder="Write your message here.."></textarea>
+						<input class="contact-form" type="submit" value="Submit" id="submit">
+						<p class="confirm">Thanks for contacting us!</p>
+				</form>
+		</div>
+</main>

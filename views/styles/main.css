@@ -611,7 +611,7 @@ body {
 	margin: 0 auto;
 }
 
-#confirm {
+.confirm {
 	text-align: center;
 	color: #ff8533;
 }

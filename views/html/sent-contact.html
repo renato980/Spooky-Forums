@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		{%- import 'variables.njk' as vars -%}
+		{%- import 'macros/layouts.njk' as layouts -%}
+		{%- import 'macros/nonlayouts.njk' as nonlayouts -%}
+		{{ nonlayouts.head(vars.title3)}}
+</head>
+<body>
+		{{ layouts.nav('contact', links) }}
+		{%- include 'nunjucks/sent-contact.njk' -%}
+</body>
+</html>

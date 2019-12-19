@@ -13,6 +13,7 @@ const dbURL = `mongodb://${HOST}`;
 const dbName = `spooky`;
 const dbCollection = `users`;
 const dbCollection2 = 'reviews';
+const dbCollection3 = 'contact';
 const PORT = 8080;
 const port = (process.env.PORT || PORT);
 const colors = {
@@ -114,7 +115,7 @@ app.post(`/get-user-from-db`, (req, res) => {
     });
 });
 
-// register a user
+// create a user
 app.get(`/register`, (req, res) => {
     res.render(`register.njk`);
 });
@@ -145,6 +146,7 @@ app.get(`/profile`, (req, res) => {
 		res.render(`profile.njk`);
 });
 
+// update password
 app.post(`/update-user-password`, (req, res) => {
 		let current_user = req.session.userID;
 		let old_pass = req.session.userPass;
@@ -187,6 +189,33 @@ app.post(`/confirm-delete`, (req, res) => {
 app.post(`/keep-account`, (req, res) => {
 	res.redirect("/profile");
 });
+
+// put contact message into database
+app.get(`/contact`, (req, res) => {
+	res.render(`contact.njk`);
+});
+
+app.post(`/send-a-message`, (req, res) => {
+		let name = req.body.name;
+		let email = req.body.email;
+		let message = req.body.message;
+
+		db.collection(dbCollection3).insertOne({name, email, message}, (err) => {
+			if(err) {
+				return console.log(err);
+			}
+			else {
+				console.log(`\nContact message put into database.\n`);
+				res.redirect("/sent-contact");
+			}
+		});
+});
+
+
+
+
+
+
 
 
 
