@@ -89,6 +89,7 @@ app.post(`/get-user-from-db`, (req, res) => {
 				else if(!user){
 					// if user does not exist
 					console.log(`\nUser does not exist.\n`);
+
 					return res.redirect("/login");
 				}
 				else {
@@ -106,10 +107,11 @@ app.post(`/get-user-from-db`, (req, res) => {
 							console.log(req.session);
 							console.log('\n');
 
-							return res.redirect("/index");
+							return res.redirect("/profile");
 						}
 						else {
 							console.log(`\nPassword is incorrect.\n`);
+
 							return res.redirect("/login");
 						}
 					});
@@ -185,7 +187,7 @@ app.post(`/confirm-delete`, (req, res) => {
 
 				req.session.destroy();
 				res.clearCookie('user', { path: '/' });
-				
+
 				res.redirect("/index");
 			}
 		});

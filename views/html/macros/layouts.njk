@@ -13,10 +13,13 @@
           <li><a class="active" href="index">Home</a></li>
           <li><a href="games">Games</a></li>
           <li><a href="contact">Contact</a></li>
-					<li class="right"><a href="register">Sign Up</a></li>
-          <li class="right"><a href="login">Log In</a></li>
-          <li class="right"><a href="logout">Logout</a></li>
-          <li class="right"><a href="profile">Profile</a></li>
+          {% if isAuthenticated %}
+							<li class="right"><a href="logout">Logout</a></li>
+							<li class="right"><a href="profile">Profile</a></li>
+					{% else %}
+          		<li class="right"><a href="register">Sign Up</a></li>
+              <li class="right"><a href="login">Log In</a></li>
+          {% endif %}
       </ul>
 	{%- endif %}
 	{%- if choice == "games" %}
