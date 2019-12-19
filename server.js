@@ -178,19 +178,30 @@ app.post(`/delete-a-user`, (req, res) => {
 		});
 });
 
-/*
-// Submit reviews for each game
-app.post(`/alien-review-in-db`, (req, res) => {
+//leave a review
+app.post(`/put-review-in-db`, (req, res) => {
 		let reviewMessage = req.body.review;
 		let reviewScore = req.body.rating;
-		let game = "Alien: Isolation";
+		let game = req.body.title;
 		db.collection(dbCollection2).insertOne({Title: game, Score: reviewScore, Message: reviewMessage}, (err) => {
 				if(err) {
 					return console.log(err);
 				}
 				else {
 					console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
-						res.redirect("back");
 				}
-});
-*/
+		});
+})
+
+//get reviews
+app.post("/get-reviews", function (req,res) {
+	let html ="";
+	let totalReviews = 3
+	let game = "Alien: Isolation";
+	for (var i = 0; i != totalReviews; i++) {
+		db.collection(dbCollection2).find({},{projection:{_id:0, Title: 0}}).toArray(function (err, result){
+		html +='<div class="review_block"><h3>Review ' + i +'</h3><p>' + result +'</p></div>';
+		res.send(html);
+	});
+};
+})
