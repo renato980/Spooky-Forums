@@ -59,6 +59,7 @@ app.use(cookie());
 
 // load homepage
 app.get(`/`, (req, res) => {
+		res.clearCookie('user', { path: '/' });
     res.render(`index.html`);
 });
 
@@ -69,6 +70,7 @@ app.get(`/*`, (req, res) => {
 
 // set up sessions
 app.use(session({
+	key: 'user',
 	secret: 'spook',
 	resave: false,
 	saveUninitialized: false
@@ -180,6 +182,10 @@ app.post(`/confirm-delete`, (req, res) => {
 			}
 			else {
 				console.log('\n' + current_user + ` deleted from database.\n`);
+
+				req.session.destroy();
+				res.clearCookie('user', { path: '/' });
+				
 				res.redirect("/index");
 			}
 		});
@@ -217,6 +223,12 @@ app.get(`/logout`, (req, res) => {
 });
 
 app.post(`/logout`, (req, res) => {
+	console.log(req.session);
+
+	req.session.destroy();
+	res.clearCookie('user', { path: '/' });
+
+	console.log('\n' + req.session);
 	res.redirect("/index");
 });
 
