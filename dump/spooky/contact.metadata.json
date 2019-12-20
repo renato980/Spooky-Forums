@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"spooky.contact"}],"uuid":"754f29380d88435286f7a9bb5457c9e0"}
