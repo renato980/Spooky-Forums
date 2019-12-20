@@ -1,10 +1,10 @@
-		<div class="messageboard">
-				<h2>Reviews</h2>
-				{%- for item in mongoDBArray -%}
-        	<div class="review_block">
+<div class="messageboard">
+		<h2>Reviews</h2>
+		{%- for item in mongoDBArray -%}
+				<div class="review_block">
 						<h3>{{item.User}}
-            <p>{{ item.Score}}/5</p>
+						<p>{{ item.Score}}/5</p>
 						<p>{{ item.Message}}</p>
-          </div>
-         {%- endfor %}
-		</div>
+				</div>
+		{%- endfor %}
+</div>

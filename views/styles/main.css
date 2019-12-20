@@ -1,3 +1,4 @@
+/* --------- Fonts --------- */
 h1, h2, h3, h4{
 	font-family: "Nosifer", sans-serif;
 }
@@ -7,12 +8,12 @@ p, li, a, footer, input, button  {
 }
 
 body {
-	font-family: sans-serif;
 	background-color: #090b11;
 	color: white;
 	margin: 0;
 }
 
+/* --------- Navigation --------- */
 .nav {
 	list-style-type: none;
 	margin: 0;
@@ -56,6 +57,7 @@ main {
 	}
 }
 
+/* --------- Home Page --------- */
 .home-main {
 	text-align: center;
 }
@@ -70,7 +72,6 @@ main {
 }
 
 /* Opening Section */
-
 #opening {
 	padding-top: 50px;
 	padding-bottom: 60px;
@@ -102,7 +103,6 @@ button:hover {
 }
 
 /* Featured Games */
-
 #featured {
 	color: #ff8533;
 	margin-bottom: 10px;
@@ -144,7 +144,6 @@ button:hover {
 }
 
 /* Latest News */
-
 #latest {
 	margin-top: 70px;
 	font-size: 24px;
@@ -171,7 +170,7 @@ button:hover {
 	text-align: left;
 }
 
-/* Responsive layout */
+/* Responsive Layout */
 @media screen and (max-width: 800px) {
 	.home-section {
 		display: table;
@@ -183,6 +182,7 @@ button:hover {
 	}
 }
 
+/* --------- Games Page --------- */
 #games-out {
 	text-align: center;
 }
@@ -201,7 +201,6 @@ button:hover {
 }
 
 /* Game Blocks */
-
 .games-section {
 	display: table;
 	white-space: nowrap;
@@ -238,7 +237,7 @@ button:hover {
 	color: white;
 }
 
-/* Responsive layout */
+/* Responsive Layout */
 @media screen and (max-width: 700px) {
 	.games-section {
 		display: table;
@@ -250,15 +249,15 @@ button:hover {
 	}
 }
 
+/* --------- Contact Page --------- */
 .contact-h1 {
 	text-align: center;
 	margin-bottom: 0;
 }
 
-/* Contact Form*/
-
+/* Contact Form */
 .contact-container {
-	font-family: 'Modern Antiqua';
+	font-family: 'Modern Antiqua', sans-serif;
 	font-weight: bold;
 	padding: 30px;
 	width: 50%;
@@ -266,11 +265,11 @@ button:hover {
 }
 
 .contact-container input, textarea {
-	font-family: 'Modern Antiqua';
+	font-family: 'Modern Antiqua', sans-serif;
 }
 
 .contact-form {
-	font-family: 'Modern Antiqua';
+	font-family: 'Modern Antiqua', sans-serif;
 	width: 100%;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -281,7 +280,7 @@ button:hover {
 }
 
 #message {
-	font-family: 'Modern Antiqua';
+	font-family: 'Modern Antiqua', sans-serif;
 	height: 200px;
 }
 
@@ -308,29 +307,27 @@ button:hover {
 	}
 }
 
-body {
-	font-family: sans-serif;
-}
-
+/* --------- Login Page --------- */
 .login-h1 {
 	text-align: center;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
+
 .login-p {
-	margin-top: 0px;
+	margin-top: 0;
 	padding-top: 10px;
 	text-align: center;
 }
 
 .login-container {
-	font-family: 'Modern Antiqua';
+	font-family: 'Modern Antiqua', sans-serif;
 	font-weight: bold;
 	padding: 30px;
 	width: 50%;
 	margin: 0 auto;
 }
 
-.login-form{
+.login-form {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
@@ -367,17 +364,14 @@ body {
 	}
 }
 
-body {
-	font-family: sans-serif;
-}
-
+/* --------- Register Page --------- */
 .register-h1 {
 	text-align: center;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .register-p {
-	margin-top: 0px;
+	margin-top: 0;
 	padding-top: 10px;
 	text-align: center;
 	font-size: 17px;
@@ -385,7 +379,7 @@ body {
 }
 
 .register-container {
-	font-family: 'Modern Antiqua';
+	font-family: 'Modern Antiqua', sans-serif;
 	font-weight: bold;
 	padding: 30px;
 	width: 50%;
@@ -429,6 +423,7 @@ body {
 	}
 }
 
+/* --------- Forum Pages --------- */
 .game_head {
 	color: #ff8533;
 	text-align: center;
@@ -439,6 +434,7 @@ body {
 	padding-left: 100px;
 	padding-right: 100px;
 }
+
 .game_desc {
 	background-color: #161a1f;
 	width: 100%;
@@ -467,23 +463,30 @@ body {
 	padding-right: 50px;
 }
 
-.about {
-	padding: 15px;
+.about h2 {
 	text-align: center;
-	padding-top: 0;
+	margin-top: 0;
+}
+
+.about {
+	padding: 20px;
+}
+
+.about h4 {
+	margin: 0;
+	text-align: center;
+	padding: 0;
+}
+
+#pack {
+	text-align: center;
 }
 
 .checked {
 	color: #ff8533;
 }
 
-.about h4 {
-	margin: 0;
-	padding: 0;
-}
-
 /* Review Board */
-
 .messageboard h2 {
 	color: #ff8533;
 	text-align: center;
@@ -491,9 +494,10 @@ body {
 }
 
 .review_block {
-	width: 100%;
+	width: 94%;
 	padding: 0.5px;
 	background-color: #161a1f;
+	margin: 0 auto;
 	margin-bottom: 25px;
 }
 
@@ -504,20 +508,19 @@ body {
 }
 
 .review_block p {
-	padding-left: 15px;
 	padding-right: 15px;
 	text-align: left;
+	color: white;
 }
 
 /* Write A Review */
-
 .write_review {
 	margin-top: 35px;
 	margin-bottom: 40px;
 }
 
 .write_review textarea {
-	font-family: 'Modern Antiqua';
+	font-family: 'Modern Antiqua', sans-serif;
 }
 
 .forum-form {
@@ -557,7 +560,7 @@ body {
   content: "\f005";
 }
 
-.write_review h2{
+.write_review h2 {
 	color: #ff8533;
 	text-align: center;
 }
@@ -579,23 +582,23 @@ body {
 	flex: 0 0 auto;
  }
 
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
 
- .rating > input:checked ~ label, /* show gold star when clicked */
- .rating:not(:checked) > label:hover, /* hover current star */
- .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
- .rating > input:checked + label:hover, /* hover current star when changing rating */
- .rating > input:checked ~ label:hover,
- .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
- .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
-
-/* Make columns responsive */
+/* Make Columns Responsive */
 @media screen and (max-width: 750px) {
 	.forum-figure {
 		display: inline-block;
 	}
 }
 
+/* Other */
 .delete {
 	text-align: center;
 }
@@ -625,6 +628,7 @@ body {
 	color: #ff8533;
 }
 
+/* --------- Footer --------- */
 footer {
 	background-color: #161a1f;
 	width: 100%;

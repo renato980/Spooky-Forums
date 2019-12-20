@@ -184,7 +184,7 @@ app.post(`/update-user-password`, (req, res) => {
 });
 
 // ------- Delete -------
-app.get(`/delete-a-user`, (req, res) => {
+app.post(`/delete-a-user`, (req, res) => {
 		res.render("delete.html");
 });
 
