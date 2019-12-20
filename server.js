@@ -68,15 +68,6 @@ app.get("/index", (req, res) => {
     res.render(`index.html`);
 });
 
-app.get("/contact", (req, res) => {
-    res.render(`contact.html`);
-});
-
-app.get("/register", (req, res) => {
-		res.clearCookie('user', { path: '/' });
-    res.render(`register.html`);
-});
-
 app.get("/login", (req, res) => {
     res.render(`login.html`);
 });
@@ -134,7 +125,7 @@ app.post(`/get-user-from-db`, (req, res) => {
 
 // create a user
 app.get(`/register`, (req, res) => {
-    res.render(`register.njk`);
+    res.render(`register.html`);
 });
 
 app.post(`/create-user-in-db`, (req, res) => {
@@ -160,7 +151,11 @@ app.post(`/create-user-in-db`, (req, res) => {
 
 // user profile
 app.get(`/profile`, (req, res) => {
-		res.render(`profile.njk`);
+		res.render(`profile.html`);
+});
+
+app.get("/update", (req, res) => {
+    res.render(`update.html`);
 });
 
 // update password
@@ -183,8 +178,8 @@ app.post(`/update-user-password`, (req, res) => {
 });
 
 // delete user account
-app.post(`/delete-a-user`, (req, res) => {
-		res.redirect("/delete");
+app.get(`/delete-a-user`, (req, res) => {
+		res.render("delete.html");
 });
 
 // user confirms they want to delete account
@@ -213,7 +208,7 @@ app.post(`/keep-account`, (req, res) => {
 
 // put contact message into database
 app.get(`/contact`, (req, res) => {
-	res.render(`contact.njk`);
+	res.render(`contact.html`);
 });
 
 app.post(`/send-a-message`, (req, res) => {
@@ -227,14 +222,14 @@ app.post(`/send-a-message`, (req, res) => {
 			}
 			else {
 				console.log(`\nContact message put into database.\n`);
-				res.redirect("/sent-contact");
+				res.render("sent-contact.html");
 			}
 		});
 });
 
 // user wants to log out
 app.get(`/logout`, (req, res) => {
-	res.render("/logout.njk");
+	res.render("logout.html");
 });
 
 app.post(`/logout`, (req, res) => {
@@ -248,22 +243,46 @@ app.post(`/logout`, (req, res) => {
 });
 
 
-
-
-
-
 app.get(`/games`, (req, res) => {
     res.render(`games.html`);
 });
-
 
 
 // leave a review
 app.post(`/put-review-in-db`, (req, res) => {
 		let reviewMessage = req.body.review;
 		let reviewScore = req.body.rating;
-		let game = req.body;
-		db.collection(dbCollection2).insertOne({Title: game.title, Score: reviewScore, Message: reviewMessage}, (err) => {
+		let user = req.session.userID;
+		let game;
+		let id = req.query.id;
+
+		if(id == "alien"){
+			game = "Alien: Isolation";
+		}else if(id == "ds"){
+			game = "Dead Space";
+		}else if(id == "ds2"){
+			game = "Dead Space 2";
+		}else if(id == "doki-doki"){
+			game = "Doki-Doki Literature Club";
+		}else if(id == "hk"){
+			game = "Hollow Knight";
+		}else if(id == "ib"){
+			game = "Ib";
+		}else if(id == "lm"){
+			game = "Luigi's Mansion 3";
+		}else if(id == "pm"){
+			game = "Pocket Mirror";
+		}else if(id == "re"){
+			game = "Resident Evil";
+		}else if(id == "re2"){
+			game = "Resident Evil 2";
+		}else if(id == "re3"){
+			game = "Resident Evil 3";
+		}else if(id == "sh2"){
+			game = "Silent Hill 2";
+		}
+
+		db.collection(dbCollection2).insertOne({Title: game, Score: reviewScore, Message: reviewMessage, User: user}, (err) => {
 				if(err) {
 					return console.log(err);
 				}

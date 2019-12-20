@@ -15,13 +15,7 @@
 			 <div class="about">
 						<h2>Luigi has to conquer his fears and explore the towering Last Resort hotel when Mario
 						and his friends go missing!</h2>
-						<p>Review Score:
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-						</p>
+
 						<p>Slam, blow away, and vacuum up ghosts with the all-new Poltergust G-00, and join
 						forces with Gooigi to overcome the puzzling contraptions and mischievous boss on each
 						themed floor. And that’s just the Last Resort. Enter the ScareScraper for 8-player
@@ -38,47 +32,3 @@
 						hotel; it may not be very spooky, but Luigi begs to differ!</p>
 			 </div>
 		</section>
-		<div class="messageboard">
-				<h2>Reviews</h2>
-				<div class="review_block">
-						<h3>Review 1</h3>
-						<p>Luigi's Mansion 3 is, without doubt, the best entry in the series. The levels are
-								much more varied and visual astounding. It has a great sense of humor, sympathetic
-								ghosts, and hours of interesting gameplay.</p>
-				</div>
-				<div class="review_block">
-						<h3>Review 2</h3>
-						<p>Luigi's Mansion 3 is the perfect mix between spooky and fun gameplay.
-								The game has a lot of variety which continuously makes it feel fresh.
- 								The option for co-operative play adds another layer to the game. From the
-								gorgeous graphics to the fantastic music, Luigi’s Mansion 3 is nothing
-								but an enjoyable experience. I can see why so many people love the series!</p>
-				</div>
-				<div class="review_block">
-						<h3>Review 3</h3>
-						<p>Luigi’s Mansion 3 is a fantastic evolution for the series. Its longer campaign,
-								large amount of multiplayer options, and more varied gameplay distinguishes
-								it from the original. The hotel adventure is amazing and the ScareScraper is
-								addictive enough to add hours of gameplay. Fans of the series have a
-								fantastic sequel to look forward to!</p>
-				</div>
-		</div>
-		<section class="write_review">
-			<form action="/put-review-in-db" method="POST">
-				<ul id= "starRating" class="rating"  name="rating">
-					<input type="radio" value="5" id = "star5" name="rating"><label title="Awesome - 5 stars" for="star5" class="full"></label></input>
-					<input type="radio" value="4.5" id = "star4half" name="rating"><label title="Awesome - 4.5 stars"for="star4half" class="half"></label></input>
-					<input type="radio" value="4" id = "star4"  name="rating"><label for="star4" title="Awesome - 4 stars" class="full"></label></input>
-					<input type="radio" value="3.5" id = "star3half"  name="rating"><label  title="Awesome - 3.5 stars"for="star4half"class="half"></label></input>
-					<input type="radio" value="3" id = "star3"  name="rating"><label for="star3" title="Awesome - 3 stars"class="full"></label></input>
-					<input type="radio" value="2.5" id = "star2half"  name="rating"><label for="star2half" title="Awesome - 2.5 stars"class="half"></label></input>
-					<input type="radio" value="2" id = "star2"  name="rating"><label for="star2" class="full"></label></input>
-					<input type="radio" value="1.5" id = "star1half"  name="rating"><label for="star1half" class="half"></label></input>
-					<input type="radio" value="1" id = "star1"  name="rating"><label for="star1" class="full"></label></input>
-				</ul>
-				<textarea class="forum-form" id="review" name="review" placeholder="Write your review here.."></textarea>
-				<textarea hidden id="title" name="title">"Luigi's Mansion 3"</textarea>
-				<input type="submit" value="Submit" id="forum-submit">
-			</form>
-		</section>
-</main>

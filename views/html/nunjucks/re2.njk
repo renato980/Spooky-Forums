@@ -14,13 +14,7 @@
 			 </section>
 			 <div class="about">
 						<h2>Game Overview</h2>
-						<p>Review Score:
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star-half-full checked"></span>
-						</p>
+
 						<p>The genre-defining masterpiece Resident Evil 2 returns, completely rebuilt from the ground
 						up for a deeper narrative experience. Using Capcom's proprietary RE Engine, Resident Evil 2
 						offers a fresh take on the classic survival horror saga with breathtakingly realistic visuals,
@@ -37,40 +31,3 @@
 						attack on the city. Will they make it out alive?</p>
 			 </div>
 		</section>
-		<div class="messageboard">
-				<h2>Reviews</h2>
-				<div class="review_block">
-						<h3>Review 1</h3>
-						<p>This remake of Resident Evil 2 is so good. I love how they made the zombies burst through doors and over the shoulder
-						aiming doesn't make the game super easy like everyone expected it to be. Definitely a game I will playthrough multiple times.</p>
-				</div>
-				<div class="review_block">
-						<h3>Review 2</h3>
-						<p>This remake of Resident Evil 2 is so good. I love how they made the zombies burst through doors and over the shoulder
-						aiming doesn't make the game super easy like everyone expected it to be. Definitely a game I will playthrough multiple times.</p>
-				</div>
-				<div class="review_block">
-						<h3>Review 3</h3>
-						<p>This remake of Resident Evil 2 is so good. I love how they made the zombies burst through doors and over the shoulder
-						aiming doesn't make the game super easy like everyone expected it to be. Definitely a game I will playthrough multiple times.</p>
-				</div>
-		</div>
-		<section class="write_review">
-			<form action="/put-review-in-db" method="POST">
-				<ul id= "starRating" class="rating"  name="rating">
-					<input type="radio" value="5" id = "star5" name="rating"><label title="Awesome - 5 stars" for="star5" class="full"></label></input>
-					<input type="radio" value="4.5" id = "star4half" name="rating"><label title="Awesome - 4.5 stars"for="star4half" class="half"></label></input>
-					<input type="radio" value="4" id = "star4"  name="rating"><label for="star4" title="Awesome - 4 stars" class="full"></label></input>
-					<input type="radio" value="3.5" id = "star3half"  name="rating"><label  title="Awesome - 3.5 stars"for="star4half"class="half"></label></input>
-					<input type="radio" value="3" id = "star3"  name="rating"><label for="star3" title="Awesome - 3 stars"class="full"></label></input>
-					<input type="radio" value="2.5" id = "star2half"  name="rating"><label for="star2half" title="Awesome - 2.5 stars"class="half"></label></input>
-					<input type="radio" value="2" id = "star2"  name="rating"><label for="star2" class="full"></label></input>
-					<input type="radio" value="1.5" id = "star1half"  name="rating"><label for="star1half" class="half"></label></input>
-					<input type="radio" value="1" id = "star1"  name="rating"><label for="star1" class="full"></label></input>
-				</ul>
-				<textarea class="forum-form" id="review" name="review" placeholder="Write your review here.."></textarea>
-				<textarea hidden id="title" name="title">"Resident Evil 2"</textarea>
-				<input type="submit" value="Submit" id="forum-submit">
-			</form>
-		</section>
-</main>
