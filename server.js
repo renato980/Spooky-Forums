@@ -33,7 +33,8 @@ nunjucks.configure(`views/html`, {
 mongoClient.connect(`${dbURL}:${dbPort}`, (err, client) => {
     if (err) {
         return console.log(err);
-    } else {
+    }
+    else {
         db = client.db(dbName);
 
         console.log(`MongoDB successfully connected:`);
@@ -64,8 +65,15 @@ app.get(`/`, (req, res) => {
 });
 
 app.get("/index", (req, res) => {
-		res.clearCookie('user', { path: '/' });
     res.render(`index.html`);
+});
+
+app.get("/home", (req, res) => {
+		res.render(`home.html`);
+});
+
+app.get("/games-out", (req, res) => {
+		res.render(`games-out.html`);
 });
 
 app.get("/login", (req, res) => {
@@ -74,13 +82,13 @@ app.get("/login", (req, res) => {
 
 // set up sessions
 app.use(session({
-	key: 'user',
-	secret: 'spook',
-	resave: false,
-	saveUninitialized: false
+		key: 'user',
+		secret: 'spook',
+		resave: false,
+		saveUninitialized: false
 }));
 
-// login
+// ------- Login -------
 app.post(`/get-user-from-db`, (req, res) => {
 		let username = req.body.username;
 		let password = req.body.password;
@@ -88,42 +96,40 @@ app.post(`/get-user-from-db`, (req, res) => {
 		// check to see if username matches existing user
     db.collection(dbCollection).findOne({username: username}, function(err, user) {
         if (err) {
-        	return console.log(err);
+        		return console.log(err);
         }
 				else if(!user){
-					// if user does not exist
-					console.log(`\nUser does not exist.\n`);
-
-					return res.redirect("/login");
+						// if user does not exist
+						console.log(`\nUser does not exist.\n`);
+						return res.redirect("/login");
 				}
 				else {
-					// check to see if password matches existing password
-					bcrypt.compare(req.body.password, user.password, function (err, match) {
-						if (err) {
-							return console.log(err);
-						}
-						if (match) {
-							// if password is correct
-							console.log(`\nUser exists.\n`);
+						// check to see if password matches existing password
+						bcrypt.compare(req.body.password, user.password, function (err, match) {
+								if(err) {
+										return console.log(err);
+								}
+								if (match) {
+										// if password is correct
+										console.log(`\nUser exists.\n`);
 
-							req.session.userID = user.username;
-							req.session.userPass = user.password;
-							console.log(req.session);
-							console.log('\n');
+										req.session.userID = user.username;
+										req.session.userPass = user.password;
+										console.log(req.session);
+										console.log('\n');
 
-							return res.redirect("/profile");
-						}
-						else {
-							console.log(`\nPassword is incorrect.\n`);
-
-							return res.redirect("/login");
-						}
-					});
+										return res.redirect("/home");
+								}
+								else {
+										console.log(`\nPassword is incorrect.\n`);
+										return res.redirect("/login");
+								}
+						});
 				}
     });
 });
 
-// create a user
+// ------- Registration -------
 app.get(`/register`, (req, res) => {
     res.render(`register.html`);
 });
@@ -139,17 +145,17 @@ app.post(`/create-user-in-db`, (req, res) => {
 		bcrypt.hash(password, 10,function(err, hash) {
 				db.collection(dbCollection).insertOne({fname, lname, email, username, password: hash}, (err) => {
 						if(err) {
-							return console.log(err);
+								return console.log(err);
 						}
 						else {
-							console.log(`\nCreated user account in database.\n`);
-							res.redirect("/login");
+								console.log(`\nCreated user account in database.\n`);
+								res.redirect("/login");
 						}
 				});
 		});
 });
 
-// user profile
+// ------- Update -------
 app.get(`/profile`, (req, res) => {
 		res.render(`profile.html`);
 });
@@ -166,18 +172,18 @@ app.post(`/update-user-password`, (req, res) => {
 
 		bcrypt.hash(new_pass, 10,function(err, hash) {
 				db.collection(dbCollection).updateOne({password: old_pass}, {$set: {password: hash}}, function (err) {
-					if (err) {
-						return console.log(err);
-					}
-					else {
-						console.log(`\nUpdated user password in database.\n`);
-						res.redirect('/update');
-					}
+						if (err) {
+								return console.log(err);
+						}
+						else {
+								console.log(`\nUpdated user password in database.\n`);
+								res.redirect('/update');
+						}
 				});
 		});
 });
 
-// delete user account
+// ------- Delete -------
 app.get(`/delete-a-user`, (req, res) => {
 		res.render("delete.html");
 });
@@ -187,28 +193,28 @@ app.post(`/confirm-delete`, (req, res) => {
 		let current_user = req.session.userID;
 
 		db.collection(dbCollection).deleteOne({username: current_user}, (err) => {
-			if(err) {
-				return console.log(err);
-			}
-			else {
-				console.log('\n' + current_user + ` deleted from database.\n`);
+				if(err) {
+						return console.log(err);
+				}
+				else {
+						console.log('\n' + current_user + ` deleted from database.\n`);
 
-				req.session.destroy();
-				res.clearCookie('user', { path: '/' });
+						req.session.destroy();
+						res.clearCookie('user', { path: '/' });
 
-				res.redirect("/index");
-			}
+						res.redirect("/index");
+				}
 		});
 });
 
 // user wants to keep account
 app.post(`/keep-account`, (req, res) => {
-	res.redirect("/profile");
+		res.redirect("/profile");
 });
 
-// put contact message into database
+// ------- Contact -------
 app.get(`/contact`, (req, res) => {
-	res.render(`contact.html`);
+		res.render(`contact.html`);
 });
 
 app.post(`/send-a-message`, (req, res) => {
@@ -217,36 +223,56 @@ app.post(`/send-a-message`, (req, res) => {
 		let message = req.body.message;
 
 		db.collection(dbCollection3).insertOne({name, email, message}, (err) => {
-			if(err) {
-				return console.log(err);
-			}
-			else {
-				console.log(`\nContact message put into database.\n`);
-				res.render("sent-contact.html");
-			}
+				if(err) {
+						return console.log(err);
+				}
+				else {
+						console.log(`\nContact message put into database.\n`);
+						res.render("sent-contact.html");
+				}
 		});
 });
 
-// user wants to log out
+// contact form when user is logged in
+app.get(`/contact-in`, (req, res) => {
+		res.render(`contact-in.html`);
+});
+
+app.post(`/send-a-message-in`, (req, res) => {
+		let name = req.body.name;
+		let email = req.body.email;
+		let message = req.body.message;
+
+		db.collection(dbCollection3).insertOne({name, email, message}, (err) => {
+				if(err) {
+						return console.log(err);
+				}
+				else {
+						console.log(`\nContact message put into database.\n`);
+						res.render("sent-contact-in.html");
+				}
+		});
+});
+
+// ------- Log Out -------
 app.get(`/logout`, (req, res) => {
-	res.render("logout.html");
+		res.render("logout.html");
 });
 
 app.post(`/logout`, (req, res) => {
-	console.log(req.session);
+		console.log(req.session);
 
-	req.session.destroy();
-	res.clearCookie('user', { path: '/' });
+		req.session.destroy();
+		res.clearCookie('user', { path: '/' });
 
-	console.log('\n' + req.session);
-	res.redirect("/index");
+		console.log('\n' + req.session);
+		res.redirect("/index");
 });
 
-
+// ------- Games -------
 app.get(`/games`, (req, res) => {
     res.render(`games.html`);
 });
-
 
 // leave a review
 app.post(`/put-review-in-db`, (req, res) => {
@@ -284,150 +310,138 @@ app.post(`/put-review-in-db`, (req, res) => {
 
 		db.collection(dbCollection2).insertOne({Title: game, Score: reviewScore, Message: reviewMessage, User: user}, (err) => {
 				if(err) {
-					return console.log(err);
+						return console.log(err);
 				}
 				else {
-					console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
-					res.redirect('back')
+						console.log(`Inserted one review into Mongo via an HTML form using POST.\n`);
+						res.redirect('back')
 				}
 		});
 });
 
 // get reviews
 app.get('/get-reviews-from-db',(req,res)  => {
-let id = req.query.id;
-				if (id== "alien"){
+		let id = req.query.id;
+
+		if (id== "alien") {
 				db.collection(dbCollection2).find({Title: "Alien: Isolation"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
 					if (err) {
-					 return console.log(err);
-			 	} else {
-					 console.log(`User requested http://${HOST}:${port}/get-alien-reviews`);
-					 console.log(`Responding to request with file`,
-						 colors.green, `forum-alien.html`, colors.reset, `via GET.\n`);
-						  res.render('forum-alien.html',{mongoDBArray: result});
-			 				}
-					});
-				} else if (id== "ds"){
-					db.collection(dbCollection2).find({Title: "Dead Space"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-						if (err) {
-						 return console.log(err);
-				 	} else {
-						 console.log(`User requested http://${HOST}:${port}/get-deadspace-reviews`);
-						 console.log(`Responding to request with file`,
-							 colors.green, `forum-ds1.html`, colors.reset, `via GET.\n`);
-							  res.render('forum-ds1.html',{mongoDBArray: result});
-				 }
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-alien-reviews`);
+						console.log(`Responding to request with file`, colors.green, `forum-alien.html`, colors.reset, `via GET.\n`);
+						res.render('forum-alien.html',{mongoDBArray: result});
+					}
 				});
-			}	else if (id== "ds2"){
-					db.collection(dbCollection2).find({Title: "Dead Space 2"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-						if (err) {
-						 return console.log(err);
-				 	} else {
-						 console.log(`User requested http://${HOST}:${port}/get-deadspace2-reviews`);
-						 console.log(`Responding to request with file`,
-							 colors.green, `forum-ds2.html`, colors.reset, `via GET.\n`);
-							  res.render('forum-ds2.html',{mongoDBArray: result});
+		} else if (id== "ds") {
+				db.collection(dbCollection2).find({Title: "Dead Space"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-deadspace-reviews`);
+						console.log(`Responding to request with file`, colors.green, `forum-ds1.html`, colors.reset, `via GET.\n`);
+						res.render('forum-ds1.html',{mongoDBArray: result});
+					}
+				});
+		}	else if (id== "ds2") {
+				db.collection(dbCollection2).find({Title: "Dead Space 2"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-deadspace2-reviews`);
+						console.log(`Responding to request with file`, colors.green, `forum-ds2.html`, colors.reset, `via GET.\n`);
+						res.render('forum-ds2.html',{mongoDBArray: result});
 					}
 				})
-			}else if (id== "doki-doki"){
+		} else if (id== "doki-doki") {
 				db.collection(dbCollection2).find({Title: "Doki-Doki Literature Club"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
 					if (err) {
-					 return console.log(err);
-				} else {
-					 console.log(`User requested http://${HOST}:${port}/get-doki-doki-reviews`);
-					 console.log(`Responding to request with file`,
-						 colors.green, `forum-dokidoki.html`, colors.reset, `via GET.\n`);
-							res.render('forum-dokidoki.html',{mongoDBArray: result});
-						}
-					})
-			}else if (id== "hk"){
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-doki-doki-reviews`);
+					 	console.log(`Responding to request with file`, colors.green, `forum-dokidoki.html`, colors.reset, `via GET.\n`);
+					 	res.render('forum-dokidoki.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "hk") {
 				db.collection(dbCollection2).find({Title: "Hollow Knight"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
 					if (err) {
-					 return console.log(err);
-				} else {
-					 console.log(`User requested http://${HOST}:${port}/get-hk-reviews`);
-					 console.log(`Responding to request with file`,
-						 colors.green, `forum-hk.html`, colors.reset, `via GET.\n`);
-							res.render('forum-hk.html',{mongoDBArray: result});
-						}
-					})
-			}else if (id== "ib"){
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-hk-reviews`);
+					 	console.log(`Responding to request with file`, colors.green, `forum-hk.html`, colors.reset, `via GET.\n`);
+					 	res.render('forum-hk.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "ib")	{
 				db.collection(dbCollection2).find({Title: "Ib"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
 					if (err) {
-					 return console.log(err);
-				} else {
-					 console.log(`User requested http://${HOST}:${port}/get-ib-reviews`);
-					 console.log(`Responding to request with file`,
-						 colors.green, `forum-ib.html`, colors.reset, `via GET.\n`);
-							res.render('forum-ib.html',{mongoDBArray: result});
-						}
-					})
-				}else if (id== "lm"){
-					db.collection(dbCollection2).find({Title: "Luigi's Mansion 3"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-						if (err) {
-						 return console.log(err);
+						return console.log(err);
 					} else {
-						 console.log(`User requested http://${HOST}:${port}/get-lm-reviews`);
-						 console.log(`Responding to request with file`,
-							 colors.green, `forum-lm.html`, colors.reset, `via GET.\n`);
-								res.render('forum-lm.html',{mongoDBArray: result});
-							}
-						})
-					}else if (id== "pm"){
-						db.collection(dbCollection2).find({Title: "Pocket Mirror"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-							if (err) {
-							 return console.log(err);
-						} else {
-							 console.log(`User requested http://${HOST}:${port}/get-pm-reviews`);
-							 console.log(`Responding to request with file`,
-								 colors.green, `forum-pm.html`, colors.reset, `via GET.\n`);
-									res.render('forum-pm.html',{mongoDBArray: result});
-								}
-							})
-						}else if (id== "re"){
-							db.collection(dbCollection2).find({Title: "Resident Evil"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-								if (err) {
-								 return console.log(err);
-							} else {
-								 console.log(`User requested http://${HOST}:${port}/get-re1-reviews`);
-								 console.log(`Responding to request with file`,
-									 colors.green, `forum-re1.html`, colors.reset, `via GET.\n`);
-										res.render('forum-re1.html',{mongoDBArray: result});
-									}
-								})
-							}else if (id== "re2"){
-								db.collection(dbCollection2).find({Title: "Resident Evil 2"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-									if (err) {
-									 return console.log(err);
-								} else {
-									 console.log(`User requested http://${HOST}:${port}/get-re2-reviews`);
-									 console.log(`Responding to request with file`,
-										 colors.green, `forum-re2.html`, colors.reset, `via GET.\n`);
-											res.render('forum-re2.html',{mongoDBArray: result});
-										}
-									})
-								}else if (id== "re3"){
-									db.collection(dbCollection2).find({Title: "Resident Evil 3"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-										if (err) {
-										 return console.log(err);
-									} else {
-										 console.log(`User requested http://${HOST}:${port}/get-re3-reviews`);
-										 console.log(`Responding to request with file`,
-											 colors.green, `forum-re3.html`, colors.reset, `via GET.\n`);
-												res.render('forum-re3.html',{mongoDBArray: result});
-											}
-										})
-									}else if (id== "sh2"){
-										db.collection(dbCollection2).find({Title: "Silent Hill 2"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
-											if (err) {
-											 return console.log(err);
-										} else {
-											 console.log(`User requested http://${HOST}:${port}/get-sh2-reviews`);
-											 console.log(`Responding to request with file`,
-												 colors.green, `forum-sh2.html`, colors.reset, `via GET.\n`);
-													res.render('forum-sh2.html',{mongoDBArray: result});
-												}
-											})
-										}
-
-		});
+						console.log(`User requested http://${HOST}:${port}/get-ib-reviews`);
+					 	console.log(`Responding to request with file`, colors.green, `forum-ib.html`, colors.reset, `via GET.\n`);
+					 	res.render('forum-ib.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "lm") {
+				db.collection(dbCollection2).find({Title: "Luigi's Mansion 3"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-lm-reviews`);
+						console.log(`Responding to request with file`, colors.green, `forum-lm.html`, colors.reset, `via GET.\n`);
+						res.render('forum-lm.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "pm") {
+				db.collection(dbCollection2).find({Title: "Pocket Mirror"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-pm-reviews`);
+						console.log(`Responding to request with file`, colors.green, `forum-pm.html`, colors.reset, `via GET.\n`);
+						res.render('forum-pm.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "re") {
+				db.collection(dbCollection2).find({Title: "Resident Evil"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-re1-reviews`);
+					 	console.log(`Responding to request with file`, colors.green, `forum-re1.html`, colors.reset, `via GET.\n`);
+					 	res.render('forum-re1.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "re2") {
+				db.collection(dbCollection2).find({Title: "Resident Evil 2"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-re2-reviews`);
+					 	console.log(`Responding to request with file`, colors.green, `forum-re2.html`, colors.reset, `via GET.\n`);
+					 	res.render('forum-re2.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "re3") {
+				db.collection(dbCollection2).find({Title: "Resident Evil 3"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-re3-reviews`);
+					 	console.log(`Responding to request with file`, colors.green, `forum-re3.html`, colors.reset, `via GET.\n`);
+					 	res.render('forum-re3.html',{mongoDBArray: result});
+					}
+				})
+		} else if (id== "sh2") {
+				db.collection(dbCollection2).find({Title: "Silent Hill 2"},{projection:{_id:0, Title: 0, }}).toArray((err, result)  => {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log(`User requested http://${HOST}:${port}/get-sh2-reviews`);
+					 	console.log(`Responding to request with file`, colors.green, `forum-sh2.html`, colors.reset, `via GET.\n`);
+					 	res.render('forum-sh2.html',{mongoDBArray: result});
+					}
+				})
+		}
+});

@@ -1,0 +1,56 @@
+{% macro nav(choice, linkArray) %}
+	{%- if choice == "none" %}
+			<ul class="nav">
+          <li><a href="home">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a href="contact-in">Contact</a></li>
+          <li class="right"><a href="logout">Log Out</a></li>
+          <li class="right"><a href="profile">Profile</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "index" %}
+			<ul class="nav">
+          <li><a class="active" href="home">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a href="contact-in">Contact</a></li>
+          <li class="right"><a href="logout">Log Out</a></li>
+          <li class="right"><a href="profile">Profile</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "games" %}
+			<ul class="nav">
+          <li><a href="home">Home</a></li>
+          <li><a class="active" href="games">Games</a></li>
+          <li><a href="contact-in">Contact</a></li>
+          <li class="right"><a href="logout">Log Out</a></li>
+          <li class="right"><a href="profile">Profile</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "contact" %}
+			<ul class="nav">
+          <li><a href="home">Home</a></li>
+          <li><a href="games">Games</a></li>
+          <li><a class="active" href="contact-in">Contact</a></li>
+          <li class="right"><a href="logout">Log Out</a></li>
+          <li class="right"><a href="profile">Profile</a></li>
+      </ul>
+	{%- endif %}
+	{%- if choice == "profile" %}
+  			<ul class="nav">
+            <li><a href="home">Home</a></li>
+            <li><a href="games">Games</a></li>
+            <li><a href="contact-in">Contact</a></li>
+            <li class="right"><a href="logout">Log Out</a></li>
+            <li class="right"><a class="active" href="profile">Profile</a></li>
+        </ul>
+  {%- endif %}
+  	{%- if choice == "logout" %}
+    			<ul class="nav">
+              <li><a href="home">Home</a></li>
+              <li><a href="games">Games</a></li>
+              <li><a href="contact-in">Contact</a></li>
+              <li class="right"><a class="active" href="logout">Log Out</a></li>
+              <li class="right"><a href="profile">Profile</a></li>
+          </ul>
+    {%- endif %}
+{%- endmacro -%}

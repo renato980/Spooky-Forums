@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"spooky.reviews"}],"uuid":"3084d23559a2446786ae3c2a34aa308f"}

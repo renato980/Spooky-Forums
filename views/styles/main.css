@@ -183,6 +183,15 @@ button:hover {
 	}
 }
 
+#games-out {
+	text-align: center;
+}
+
+#access {
+	text-align: center;
+	font-size: 22px;
+}
+
 .games-h1 {
 	padding-top: 20px;
 	padding-bottom: 5px;

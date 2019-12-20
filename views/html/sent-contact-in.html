@@ -4,12 +4,10 @@
 		{%- import 'variables.njk' as vars -%}
 		{%- import 'macros/layouts-in.njk' as layouts -%}
 		{%- import 'macros/nonlayouts.njk' as nonlayouts -%}
-		{{ nonlayouts.head(vars.title13)}}
+		{{ nonlayouts.head(vars.title3)}}
 </head>
 <body>
-    {{ layouts.nav('none',links) }}
-    {%- include 'nunjucks/pm.njk' -%}
-		{%- include 'nunjucks/reviews.njk' -%}
-		{%- include 'nunjucks/send-review-pm.njk' -%}
+		{{ layouts.nav('contact', links) }}
+		{%- include 'nunjucks/sent-contact-in.njk' -%}
 </body>
 </html>
