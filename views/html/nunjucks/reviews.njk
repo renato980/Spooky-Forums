@@ -1,0 +1,28 @@
+		<div class="messageboard">
+				<h2>Reviews</h2>
+				{%- for item in mongoDBArray -%}
+        	<div class="review_block">
+            <p>{{ item.Score}}/5</p>
+						<p>{{ item.Message}}</p>
+          </div>
+         {%- endfor %}
+		</div>
+		<section class="write_review">
+			<h2>Leave a Review</h2>
+				<form action="/put-review-in-db" method="POST">
+					<ul id= "starRating" class="rating"  name="rating">
+						<input type="radio" value="5" id = "star5" name="rating"><label title="Awesome - 5 stars" for="star5" class="full"></label></input>
+						<input type="radio" value="4.5" id = "star4half" name="rating"><label title="Awesome - 4.5 stars"for="star4half" class="half"></label></input>
+						<input type="radio" value="4" id = "star4"  name="rating"><label for="star4" title="Awesome - 4 stars" class="full"></label></input>
+						<input type="radio" value="3.5" id = "star3half"  name="rating"><label  title="Awesome - 3.5 stars"for="star4half"class="half"></label></input>
+						<input type="radio" value="3" id = "star3"  name="rating"><label for="star3" title="Awesome - 3 stars"class="full"></label></input>
+						<input type="radio" value="2.5" id = "star2half"  name="rating"><label for="star2half" title="Awesome - 2.5 stars"class="half"></label></input>
+						<input type="radio" value="2" id = "star2"  name="rating"><label for="star2" class="full"></label></input>
+						<input type="radio" value="1.5" id = "star1half"  name="rating"><label for="star1half" class="half"></label></input>
+						<input type="radio" value="1" id = "star1"  name="rating"><label for="star1" class="full"></label></input>
+					</ul>
+					<textarea class="forum-form" id="review" name="review" placeholder="Write your review here.."></textarea>
+					<input type="submit" value="Submit" id="forum-submit">
+				</form>
+		</section>
+</main>
